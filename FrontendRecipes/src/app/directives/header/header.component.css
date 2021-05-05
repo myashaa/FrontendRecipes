@@ -1,0 +1,82 @@
+.header
+{
+  width: 1440px;
+  height: 100px;
+  margin: 0 auto;
+  padding: 44px 120px 0px;
+}
+
+.recipes
+{
+  width: 99px;
+  height: 29px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  color: #FDB100;
+}
+
+.header_button
+{
+  height: 22px;
+  margin-top: 4px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #3A3C41;
+  background-color: #FFF;
+  border: none;
+  cursor: pointer;
+}
+
+.header_button:hover
+{
+  font-weight: 600;
+  color: #3A3C41;
+}
+
+.header_button__main
+{
+  width: 76px;
+  margin-left: 80px;
+  font-weight: normal;
+  color: #9196A1;
+}
+
+.header_button__recipes
+{
+  width: 82px;
+  margin-left: 40px;
+  font-weight: normal;
+  color: #9196A1;
+} 
+
+.header_button__favorites
+{
+  width: 106px;
+  margin-left: 40px;
+  font-weight: normal;
+  color: #9196A1;
+}
+
+.header_button__enter::before
+{
+  content: url("images/login.png");
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  top: -9px;
+  left: -52px;
+}
+
+.header_button__enter
+{
+  position: relative;
+  width: 60px;
+  margin-left: 617px;
+  font-weight: 600;
+  color: #FDB100;
+}

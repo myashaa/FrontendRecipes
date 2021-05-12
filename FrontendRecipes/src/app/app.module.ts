@@ -8,9 +8,13 @@ import { HeaderComponent } from './directives/header/header.component';
 import { FooterComponent } from './directives/footer/footer.component';
 import { SearchComponent } from './directives/search/search.component';
 import { MainComponent } from './pages/main/main.component';
+import { PopupRegistrationComponent } from './directives/popup-registration/popup-registration.component';
+import { PopupAuthorizationComponent } from './directives/popup-authorization/popup-authorization.component';
+import { PopupSwitchComponent } from './directives/popup-switch/popup-switch.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CardRecipeComponent } from './directives/card-recipe/card-recipe.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,13 +23,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     SearchComponent,
     MainComponent,
+    PopupRegistrationComponent,
+    PopupAuthorizationComponent,
+    PopupSwitchComponent,
     RecipesComponent,
     CardRecipeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

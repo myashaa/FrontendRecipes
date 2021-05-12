@@ -16,7 +16,7 @@
   -webkit-flex-direction: row;
   display: flex;
   flex-direction: row;
-  width: 43%;
+  width: 43.5%;
   justify-content: space-between;
 }
 
@@ -31,7 +31,7 @@
   font-size: 24px;
   line-height: 29px;
   color: #FDB100;
-  margin-right: 6%;
+  margin-right: 8%;
 }
 
 .header_button
@@ -44,7 +44,7 @@
   font-size: 18px;
   line-height: 22px;
   color: #3A3C41;
-  background-color: #FFF;
+  background: none;
   border: none;
   cursor: pointer;
 }

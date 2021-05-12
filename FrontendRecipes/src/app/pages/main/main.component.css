@@ -72,28 +72,6 @@
   height: 60px;
   border-radius: 16px;
   cursor: pointer;
-}
-
-.authorization-contentt_button__add
-{
-  width: 53.9%;
-  background: #FDB100;
-  border: none;
-  position: relative;
-}
-
-.authorization-contentt_button__enter
-{
-  width: 41.9%;
-  border: 1px solid #FDB100;
-  box-sizing: border-box;
-  background-color: #FFF;
-  justify-content: center;
-}
-
-.authorization-content_button-text
-{
-  height: 28px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
@@ -101,29 +79,52 @@
   line-height: 28px;
 }
 
-.authorization-content_button-text__add::before
+.authorization-contentt_button__add
 {
-  content: "";
-  background: url("images/plus.png");
-  width: 14px;
-  height: 14px;
+  width: 53.9%;
+  background: #FDB100;
+  color: #FFF;
+  border: none;
+  padding-left: 8%;
+  position: relative;
+}
+
+.authorization-contentt_button__add:hover
+{
+  border: 1px solid #FDB100;
+  box-sizing: border-box;
+  background-color: #FFF;
+  color: #FDB100;
+}
+
+.authorization-contentt_button__add::before
+{
+  content: "+";
+  color: #FFF;
+  font-size: 34px;
+  font-weight: 300;
   position: absolute;
-  top: 23px;
+  top: 16px;
   left: 13%;
 }
 
-.authorization-content_button-text__add
+.authorization-contentt_button__add:hover:before{color:#FDB100}
+
+.authorization-contentt_button__enter
 {
-  display: block;
-  width: 167px;
-  color: #FFFFFF;
-  margin-left: 25.5%;
+  width: 41.9%;
+  border: 1px solid #FDB100;
+  box-sizing: border-box;
+  background-color: #FFF;
+  color: #FDB100;
+  justify-content: center;
 }
 
-.authorization-contentt_button-text__enter
+.authorization-contentt_button__enter:hover
 {
-  width: 60px;
-  color: #FDB100;
+  background: #FDB100;
+  color: #FFF;
+  border: none;
 }
 
 .sorting
@@ -412,7 +413,8 @@
   margin: 16px auto 64px;
   width: 700px;
   height: 32px;
-  font-family: Mulish;
+  font-family: 'Mulish', sans-serif;
+  letter-spacing: 0.7px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

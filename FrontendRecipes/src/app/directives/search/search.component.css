@@ -21,6 +21,19 @@
   text-transform: capitalize;
   color: rgba(37, 41, 45, 0.5);
   box-shadow: 0px 8px 42px rgba(34, 39, 47, 0.04);
+  border: 1px solid #FFF;
+  outline: none;
+}
+
+.search_input:hover
+{
+  border: 1px solid #FDB100;
+}
+
+.search_input:focus
+{
+  border-radius: 16px;
+  border: 1px solid #FDB100;
 }
 
 .search_button
@@ -40,6 +53,13 @@
   text-transform: capitalize;
   color: #FFFFFF;
   cursor: pointer;
+}
+
+.search_button:hover
+{
+  background-color: #FFF;
+  border: 1px solid #FDB100;
+  color: #FDB100;
 }
 
 .sections
@@ -72,6 +92,5 @@
 
 .section:hover
 {
-  font-weight: 600;
-  color: #3A3C41;
+  color: black;
 }

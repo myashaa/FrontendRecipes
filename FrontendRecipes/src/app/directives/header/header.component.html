@@ -1,9 +1,11 @@
 <div class="header">
   <div class="pages">
-    <span class="recipes">Recipes</span>
-    <button class="header_button header_button__main">Главная</button>
-    <button class="header_button header_button__recipes">Рецепты</button>
-    <button class="header_button header_button__favorites">Избранное</button>
+    <input type="text"  [(ngModel)]="name" placeholder="name">
+
+    <span class="recipes">{{name}}</span>
+    <button class="header_button header_button__main">{{content.mainPageTitle}}</button>
+    <button class="header_button header_button__recipes">{{content.recipesPageTitle}}</button>
+    <button class="header_button header_button__favorites">{{content.favoritesPageTitle}}</button>
   </div>
   <button class="header_button header_button__enter">Войти</button>
 </div>

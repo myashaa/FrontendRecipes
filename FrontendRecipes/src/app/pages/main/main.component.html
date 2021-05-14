@@ -1,6 +1,6 @@
 <div class="main-page">
   <div class="authorization">
-    <app-header></app-header>
+    <app-header [content]="headerContent"></app-header>
     <div class="authorization-content">
       <span class="authorization-content_header">
         Готовь и делись рецептами
@@ -9,7 +9,7 @@
         Никаких кулинарных книг и блокнотов! Храни все любимые рецепты в одном месте.
       </span>
       <div class="authorization-content_buttons">
-        <button class="authorization-content_button authorization-contentt_button__add">
+        <button (click)="Log()" class="authorization-content_button authorization-contentt_button__add">
           Добавить рецепт
         </button>
         <button class="authorization-content_button authorization-contentt_button__enter">

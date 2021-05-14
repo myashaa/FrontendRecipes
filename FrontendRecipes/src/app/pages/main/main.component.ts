@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderContent } from '../../js/ui';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+  public headerContent!: HeaderContent
+
   constructor() { }
 
   ngOnInit(): void {
+    this.headerContent = {
+      appTitle: 'Lol',
+      favoritesPageTitle: 'Избранное',
+      mainPageTitle: 'Главная',
+      recipesPageTitle: 'Рецепты'
+    };
+  }
+
+  public Log(): void {
+    
   }
 
 }

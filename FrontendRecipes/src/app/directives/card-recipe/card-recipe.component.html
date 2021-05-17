@@ -1,0 +1,41 @@
+<div class="card">
+  <img class="card_image" src="{{content.image}}" alt="card photo"/>
+  <div class="card_author">{{content.author}}</div>
+  <div class="card_content">
+    <div class="navigation">
+      <div class="tags">
+        <button class="tag">{{content.tag1}}</button>
+        <button class="tag">{{content.tag2}}</button>
+        <button class="tag">{{content.tag3}}</button>
+      </div>
+      <div class="buttons">
+        <button class="button button_favorite">
+          <span class="button_text">{{content.favorites}}</span>
+        </button>
+        <button class="button button_like">
+          <span class="button_text">{{content.likes}}</span>
+        </button>
+      </div>
+    </div>
+    <span class="card_header">{{content.header}}</span>
+    <span class="card_text">{{content.text}}</span>
+    <div class="information">
+       <div class="information-about information-about_timer">
+          <span class="information-about_text information-about_text__timer">
+            Время приготовления:
+          </span>
+          <span class="information-about_number information-about_number__timer">
+            {{content.time}} мин
+          </span>
+       </div>
+       <div class="information-about information-about_people">
+          <span class="information-about_text information-about_text__people">
+            Рецепт на:
+          </span>
+          <span class="information-about_number information-about_number__people">
+            {{content.persons}} персон
+          </span>
+       </div>
+    </div>
+  </div>
+</div>

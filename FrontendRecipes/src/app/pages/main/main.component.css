@@ -426,5 +426,6 @@
 
 .search_directive
 {
-  width: 100%;
+  width: 62%;
+  margin: 0 auto;
 }

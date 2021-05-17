@@ -96,6 +96,12 @@
 
 .button
 {
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 46.7%;
   height: 50px;
   border: 1px solid #FDB100;
@@ -104,36 +110,6 @@
   background-color: #FFF;
   position: relative;
   cursor: pointer;
-}
-
-.button_favorite::before
-{
-  content: url("/assets/images/star_border.png");
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 13px;
-  left: 23px;
-}
-
-.button_favorite:focus:before
-{
-  content: url("/assets/images/star.png");
-}
-
-.button_like::before
-{
-  content: url("/assets/images/favorite_border.png");
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 13px;
-  left: 23px;
-}
-
-.button_like:focus:before
-{
-  content: url("/assets/images/favorite.png");
 }
 
 .button_text
@@ -148,7 +124,7 @@
   line-height: 28px;
   text-align: center;
   color: #FDB100;
-  margin-left: 55%;
+  margin-left: 9%;
 }
 
 .card_header

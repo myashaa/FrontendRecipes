@@ -9,10 +9,14 @@
         <button class="tag">{{content.tag3}}</button>
       </div>
       <div class="buttons">
-        <button class="button button_favorite">
+        <button class="button button_favorite" (click)="switchStar()">
+          <img class="button_image" *ngIf="star" src="/assets/images/star_border.png" alt="star photo"/>
+          <img class="button_image" *ngIf="!star" src="/assets/images/star.png" alt="star photo"/>
           <span class="button_text">{{content.favorites}}</span>
         </button>
-        <button class="button button_like">
+        <button class="button button_like" (click)="switchHeart()">
+          <img class="button_image" *ngIf="heart" src="/assets/images/favorite_border.png" alt="heart photo"/>
+          <img class="button_image" *ngIf="!heart" src="/assets/images/favorite.png" alt="heart photo"/>
           <span class="button_text">{{content.likes}}</span>
         </button>
       </div>

@@ -10,6 +10,19 @@ export class CardRecipeComponent implements OnInit {
 
   @Input() content!: CardContent;
 
+  star: boolean = true;
+  heart: boolean=true;
+   
+  switchStar()
+  {
+    this.star=!this.star;
+  }
+
+  switchHeart()
+  {
+    this.heart=!this.heart;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

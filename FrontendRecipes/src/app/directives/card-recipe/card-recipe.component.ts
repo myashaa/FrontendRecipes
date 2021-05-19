@@ -10,17 +10,17 @@ export class CardRecipeComponent implements OnInit {
 
   @Input() content!: CardContent;
 
-  star: boolean = true;
-  heart: boolean=true;
+  isFavoriteRecipe: boolean = true;
+  isLikedRecipe: boolean = true;
    
-  switchStar()
+  switchFavoriteRecipe()
   {
-    this.star=!this.star;
+    this.isFavoriteRecipe = !this.isFavoriteRecipe;
   }
 
-  switchHeart()
+  switchLikedRecipe()
   {
-    this.heart=!this.heart;
+    this.isLikedRecipe = !this.isLikedRecipe;
   }
 
   constructor() { }

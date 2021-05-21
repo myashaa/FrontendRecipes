@@ -1,7 +1,9 @@
 .recipes-page
 {
   /* background: url(images/wave1.png) top 90px left 0/1440px 1403px no-repeat, url(images/wave2.png) top 1140px left 0/1440px 1403px no-repeat, #FEFEFB; */
-  width: 100%;
+  /* width: 100%; */
+  width: 1440px;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -228,4 +230,28 @@
   background: #FDB100;
   color: #FFF;
   border: none;
+}
+
+.back::before
+{
+  content: "←";
+  position: absolute;
+  top: -2px;
+  left: -30px;
+}
+
+.back
+{
+  display: block;
+  margin: 27px 0 0 10.7%;
+  position: relative;
+  width: 58px;
+  height: 22px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FDB100;
+  cursor: pointer;
 }

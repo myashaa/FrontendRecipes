@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CardRecipeComponent } from './directives/card-recipe/card-recipe.component';
+import { RecipeComponent } from './directives/recipe/recipe.component';
+import { StepRecipeComponent } from './directives/step-recipe/step-recipe.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { CardRecipeComponent } from './directives/card-recipe/card-recipe.compon
     PopupAuthorizationComponent,
     PopupSwitchComponent,
     RecipesComponent,
-    CardRecipeComponent
+    CardRecipeComponent,
+    RecipeComponent,
+    StepRecipeComponent
   ],
   imports: [
     BrowserModule,

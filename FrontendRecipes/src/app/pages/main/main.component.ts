@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PopupSwitchComponent } from '../../directives/popup-switch/popup-switch.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-main',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
+
+  public openPopupSwitch() {
+    this.dialog.open(PopupSwitchComponent);
+  }
 
   ngOnInit(): void {
   }

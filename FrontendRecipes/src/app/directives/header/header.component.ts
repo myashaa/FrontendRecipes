@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PopupSwitchComponent } from '../../directives/popup-switch/popup-switch.component';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +10,11 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(public dialog: MatDialog, private router: Router) {}
+
+  public openPopupSwitch() {
+    this.dialog.open(PopupSwitchComponent);
+  }
 
   public goToMainPage(): void {
     this.router.navigate(['main']);

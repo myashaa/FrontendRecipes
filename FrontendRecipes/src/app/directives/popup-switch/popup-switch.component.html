@@ -1,0 +1,13 @@
+<div class="popup-switch">
+  <button mat-dialog-close class="exit"><span class="exit-text">+</span></button>
+  <span class="popup-switch_header">Войдите в профиль</span>
+  <span class="popup-switch_text">Добавлять рецепты могут только зарегистрированные пользователи.</span>
+  <div class="buttons">
+    <button mat-dialog-close (click)="openPopupAuthorization()" class="popup-switch_button popup-switch_button__authorization">
+      Войти
+    </button>
+    <button mat-dialog-close (click)="openPopupRegistration()" class="popup-switch_button popup-switch_button__registration">
+      Регистрация
+    </button>
+  </div>
+</div>

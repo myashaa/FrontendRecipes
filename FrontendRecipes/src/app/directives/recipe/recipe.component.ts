@@ -12,6 +12,31 @@ export class RecipeComponent implements OnInit {
   @Input() value!: number;
   @Input() card!: CardContent;
 
+  title: string = "Клубничная Панна-Котта";
+
+  blocks = [
+    {
+      title: "Для панна котты",
+      ingredients: [
+        "Сливки-20-30% - 500мл.",
+        "Молоко - 100мл.",
+        "Желатин - 2ч.л.",
+        "Сахар - 3ст.л.",
+        "Ванильный сахар - 2 ч.л."
+      ]
+    },
+    {
+      title: "Для клубничного желе",
+      ingredients: [
+        "Сливки-20-30% - 500мл.",
+        "Молоко - 100мл.",
+        "Желатин - 2ч.л.",
+        "Сахар - 3ст.л.",
+        "Ванильный сахар - 2 ч.л."
+      ]
+    }
+  ];
+
   public steps!: StepContent[];
 
   constructor() { }

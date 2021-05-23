@@ -1,4 +1,4 @@
-<div class="recipes-page">
+<div id="detailed" class="recipes-page">
   <app-header></app-header>
   <div class="main" *ngIf="main">
     <div class="title">
@@ -24,7 +24,7 @@
       <div class="search_directive"><app-search></app-search></div>
     </div>
     <div class="cards">
-      <app-card-recipe class="card" *ngFor="let card of cards" [content]="card" (click)="showRecipe(card)"></app-card-recipe>
+      <a href="http://localhost:4200/recipe#detailed" class="card_link"><app-card-recipe class="card" *ngFor="let card of cards" [content]="card" (click)="showRecipe(card)"></app-card-recipe></a>
       <button class="cards_button">Загрузить еще</button>
     </div>
   </div>

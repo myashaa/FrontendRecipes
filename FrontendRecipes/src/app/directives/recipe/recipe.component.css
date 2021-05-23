@@ -47,7 +47,7 @@
   height: 24px;
   position: absolute;
   top: 17px;
-  left: 30%;
+  left: 33%;
 }
 
 .title_button__delete:hover
@@ -118,6 +118,15 @@
   display: flex;
   flex-direction: column;
   width: 15%;
+}
+
+.ingredients_block
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .ingredients_header

@@ -1,21 +1,19 @@
 <div class="recipe">
   <div class="title">
-    <span class="title_text">Клубничная Панна-Котта</span>
+    <span class="title_text">{{title}}</span>
     <div class="buttons">
       <button class="title_button title_button__delete"></button>
       <button class="title_button title_button__edit">Редактировать</button>
     </div>
   </div>
-  <app-card-recipe class="card" [content]="card"]></app-card-recipe>
+  <app-card-recipe class="card" [content]="card"></app-card-recipe>
   <div class="recipe-container">
     <div class="ingredients">
       <span class="ingredients_header">Ингридиенты</span>
-      <span class="ingredients_title">Для панна котты</span>
-      <span class="ingredients_ingredient">Сливки-20-30% - 500мл.</span>
-      <span class="ingredients_ingredient">Молоко - 100мл.</span>
-      <span class="ingredients_ingredient">Желатин - 2ч.л.</span>
-      <span class="ingredients_ingredient">Сахар - 3ст.л.</span>
-      <span class="ingredients_ingredient">Ванильный сахар - 2 ч.л.</span>
+      <div class="ingredients_block" *ngFor="let block of blocks"> 
+        <span class="ingredients_title">{{block.title}}</span>
+        <span class="ingredients_ingredient" *ngFor="let ingredient of block.ingredients">{{ingredient}}</span>
+      </div>
     </div>
     <div class="steps">
       <app-step-recipe class="step" *ngFor="let step of steps" [content]="step"></app-step-recipe>

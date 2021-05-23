@@ -1,32 +1,36 @@
 <div class="recipes-page">
   <app-header></app-header>
-  <!-- <div class="title">
-    <span class="title_text">Рецепты</span>
-    <button class="title_button">Добавить рецепт</button>
+  <div class="main" *ngIf="main">
+    <div class="title">
+      <span class="title_text">Рецепты</span>
+      <button class="title_button">Добавить рецепт</button>
+    </div>
+    <div class="mini-cards">
+      <div class="mini-card mini-card_1">
+        <span class="mini-card_header">Простые блюда</span>
+      </div>
+      <div class="mini-card mini-card_2">
+        <span class="mini-card_header">Детское</span>
+      </div>
+      <div class="mini-card mini-card_3">
+        <span class="mini-card_header">От шеф-поваров</span>
+      </div>
+      <div class="mini-card mini-card_4">
+        <span class="mini-card_header">На праздник</span>
+      </div>
+    </div>
+    <div class="search">
+      <span class="search_header">Поиск рецепта</span>
+      <div class="search_directive"><app-search></app-search></div>
+    </div>
+    <div class="cards">
+      <app-card-recipe class="card" *ngFor="let card of cards" [content]="card" (click)="showRecipe(card)"></app-card-recipe>
+      <button class="cards_button">Загрузить еще</button>
+    </div>
   </div>
-  <div class="mini-cards">
-    <div class="mini-card mini-card_1">
-      <span class="mini-card_header">Простые блюда</span>
-    </div>
-    <div class="mini-card mini-card_2">
-      <span class="mini-card_header">Детское</span>
-    </div>
-    <div class="mini-card mini-card_3">
-      <span class="mini-card_header">От шеф-поваров</span>
-    </div>
-    <div class="mini-card mini-card_4">
-      <span class="mini-card_header">На праздник</span>
-    </div>
+  <div class="detailed" *ngIf="detailed">
+    <a class="back" (click)="showRecipes()">Назад</a>
+    <app-recipe [card]="currentCard"></app-recipe>
   </div>
-  <div class="search">
-    <span class="search_header">Поиск рецепта</span>
-    <div class="search_directive"><app-search></app-search></div>
-  </div>
-  <div class="cards">
-    <app-card-recipe class="card" *ngFor="let card of cards" [content]="card"></app-card-recipe>
-    <button class="cards_button">Загрузить еще</button>
-  </div> -->
-  <a class="back">Назад</a>
-  <app-recipe></app-recipe>
 </div> 
 <app-footer></app-footer>

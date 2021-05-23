@@ -204,6 +204,7 @@
 .card
 {
   margin-bottom: 40px;
+  cursor: pointer;
 }
 
 .cards_button
@@ -238,6 +239,7 @@
   position: absolute;
   top: -2px;
   left: -30px;
+  cursor: pointer;
 }
 
 .back

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { CardContent } from '../../js/card-recipe';
-import { StepContent } from '../../js/step-recipe';
+import { CardContent } from '../card-recipe/card-recipe';
+import { StepContent } from '../step-recipe/step-recipe';
 
 @Component({
   selector: 'app-recipe',
@@ -54,11 +54,11 @@ export class RecipeComponent implements OnInit {
     {
       id: 3,
       text: "Разольем охлажденные сливки по креманкам и поставим в холодильник до полного застывания. Это около 3-5 часов."
-      },
+    },
     {
       id: 4,
       text: "Приготовим клубничное желе: Клубнику помоем, очистим от плодоножек. Добавим сахар. Взбиваем клубнику с помощью блендера в пюре."
-      },
+    },
     {
       id: 5,
       text: "Добавим в миску с желатином 2ст.ложки холодной воды и сок лимона. Перемешаем и поставим на 30 минут для набухания. Доведем клубничное пюре до кипения. Добавим набухший желатин, перемешаем до полного растворения. Огонь отключаем. Охладим до комнатной температуры."

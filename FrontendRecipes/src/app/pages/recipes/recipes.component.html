@@ -27,6 +27,10 @@
       <a href="http://localhost:4200/recipe#detailed" class="card_link"><app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe></a>
       <button class="cards_button">Загрузить еще</button>
     </div>
+  </div> -->
+  <div class="added">
+    <a class="back">Назад</a>
+    <app-new-recipe></app-new-recipe>
   </div>
   <div class="detailed" *ngIf="detailed">
     <a class="back" (click)="showRecipes()">Назад</a>

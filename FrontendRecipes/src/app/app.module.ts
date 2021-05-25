@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CardRecipeComponent } from './directives/card-recipe/card-recipe.component';
+import { NewRecipeComponent } from './directives/new-recipe/new-recipe.component';
+// import {MatChipsModule} from '@angular/material/chips';
 import { RecipeComponent } from './directives/recipe/recipe.component';
 import { StepRecipeComponent } from './directives/step-recipe/step-recipe.component';
 
@@ -30,6 +32,8 @@ import { StepRecipeComponent } from './directives/step-recipe/step-recipe.compon
     PopupSwitchComponent,
     RecipesComponent,
     CardRecipeComponent,
+    NewRecipeComponent
+
     RecipeComponent,
     StepRecipeComponent
   ],
@@ -37,7 +41,8 @@ import { StepRecipeComponent } from './directives/step-recipe/step-recipe.compon
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    // MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,55 @@
+<div class="new-recipe">
+  <div class="title">
+    <span class="title_text">Добавить новый рецепт</span>
+    <button class="title_button">Опубликовать</button>
+  </div>
+  <div class="recipe">
+    <div class="recipe_photo">
+      <img class="card_image" src="assets/images/add_recipe.png" alt="new recipe photo"/>
+    </div>
+    <div class="description">
+      <input class="description_input description_input__big" placeholder="Название рецета" type="text" name="name">
+      <textarea class="description_input description_input__big  description_input__text" placeholder="Краткое описание рецепта (150 символов)" 
+                maxlength="150" type="text" name="description"></textarea>
+      <input class="description_input description_input__big" placeholder="Добавить теги" type="text" name="tags">
+      <!-- <mat-form-field class="example-chip-list">
+        <mat-chip-list #chipList aria-label="Tag selection">
+          <mat-chip *ngFor="let tag of tags" [selectable]="selectable" [removable]="removable" (removed)="remove(tag)">
+            {{tag.name}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>   
+          </mat-chip>
+          <input placeholder="New tag..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field> -->
+      <div class="description_numbers">
+        <div class="description_numbers__number">
+          <input class="description_input description_input__small" placeholder="Время готовки" type="text" name="time">
+          <label class="description_text description_text__time">Минут</label>
+        </div>   
+        <div class="description_numbers__number">   
+          <input class="description_input description_input__small" placeholder="Порций в блюде" type="text" name="persons">
+          <label class="description_text">Персон</label>
+        </div>  
+      </div>
+    </div>
+  </div>
+  <div class="recipe-container">
+    <div class="ingredients">
+      <span class="ingredients_header">Ингридиенты</span>
+      <div class="ingredients_block" *ngFor="let block of blocks; let i = index"> 
+        <button mat-dialog-close class="exit exit_ingredient" (click)="deleteTitle(i)"><span class="exit-text">+</span></button>
+        <input class="ingredients_input" placeholder="Заголовок для ингридиентов" type="text" name="title">
+        <input class="ingredients_input ingredients_input__big" placeholder="Список продуктов для категории" type="text" name="ingredients">
+      </div>
+      <button class="add_button add_button__ingredient" (click)="addTitle()">Добавить заголовок</button>
+    </div>
+    <div class="steps">
+      <div class="step" *ngFor="let step of steps; let i = index">
+        <button mat-dialog-close class="exit exit_step" (click)="deleteStep(i)"><span class="exit-text">+</span></button>
+        <span class="step_header">Шаг {{i+1}}</span>
+        <textarea class="step_input" placeholder="Описание шага" type="text" name="ingredients"></textarea>
+      </div>
+      <button class="add_button add_button__step" (click)="addStep()">Добавить шаг</button>
+    </div>
+  </div>
+</div>

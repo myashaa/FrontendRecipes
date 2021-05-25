@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CardContent } from './card-recipe';
+import { RecipeDto } from 'src/app/js/dto/recipe.dto';
 
 @Component({
   selector: 'app-card-recipe',
@@ -8,22 +8,21 @@ import { CardContent } from './card-recipe';
 })
 export class CardRecipeComponent implements OnInit {
 
-  @Input() content!: CardContent;
+  @Input() content!: RecipeDto;
 
   isFavoriteRecipe: boolean = true;
   isLikedRecipe: boolean = true;
-   
-  switchFavoriteRecipe()
-  {
+
+  constructor() { }
+
+
+  public switchFavoriteRecipe() {
     this.isFavoriteRecipe = !this.isFavoriteRecipe;
   }
 
-  switchLikedRecipe()
-  {
+  public switchLikedRecipe() {
     this.isLikedRecipe = !this.isLikedRecipe;
   }
-
-  constructor() { }
 
   ngOnInit(): void {
   }

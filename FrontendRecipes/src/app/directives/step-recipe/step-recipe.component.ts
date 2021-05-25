@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StepContent } from './step-recipe';
+import { StepDto } from 'src/app/js/dto/step.dto';
 
 @Component({
   selector: 'app-step-recipe',
@@ -8,7 +8,7 @@ import { StepContent } from './step-recipe';
 })
 export class StepRecipeComponent implements OnInit {
 
-  @Input() content!: StepContent;
+  @Input() content!: StepDto;
 
   constructor() { }
 

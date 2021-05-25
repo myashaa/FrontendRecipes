@@ -24,13 +24,13 @@
       <div class="search_directive"><app-search></app-search></div>
     </div>
     <div class="cards">
-      <a href="http://localhost:4200/recipe#detailed" class="card_link"><app-card-recipe class="card" *ngFor="let card of cards" [content]="card" (click)="showRecipe(card)"></app-card-recipe></a>
+      <a href="http://localhost:4200/recipe#detailed" class="card_link"><app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe></a>
       <button class="cards_button">Загрузить еще</button>
     </div>
   </div>
   <div class="detailed" *ngIf="detailed">
     <a class="back" (click)="showRecipes()">Назад</a>
-    <app-recipe [card]="currentCard"></app-recipe>
+    <app-recipe [recipe]="currentRecipe"></app-recipe>
   </div>
 </div> 
 <app-footer></app-footer>

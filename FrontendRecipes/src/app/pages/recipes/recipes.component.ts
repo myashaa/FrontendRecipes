@@ -24,10 +24,10 @@ export class RecipesComponent implements OnInit {
     });
   }
 
-  public showRecipe(card: RecipeDto) {
+  public showRecipe(recipe: RecipeDto) {
     this.main = false;
     this.detailed = true;
-    this.currentRecipe = card;
+    this.currentRecipe = recipe;
   }
 
   public showRecipes() {

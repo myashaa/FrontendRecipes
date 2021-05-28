@@ -9,8 +9,8 @@ export class RecipeService {
   constructor() { }
 
   public getRecipes(): Promise<RecipeDto[]> {
-    return new Promise((resolve, reject) => {
-      return [{
+    return new Promise<RecipeDto[]>((resolve, reject) => {
+      resolve([{
         id: 1,
         imageUrl: "/assets/images/card1.png",
         author: "@glazest",
@@ -241,7 +241,7 @@ export class RecipeService {
             description: "Сверху на застывшие сливки добавим охлажденное клубничное желе. Поставим в холодильник до полного застывания клубничного желе. Готовую панна коту подаем с фруктами."
           }
         ]
-      }];
+      }]);
     });
   }
 }

@@ -201,7 +201,14 @@
 
 .card
 {
+  display: block;
   margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.card_link
+{
+  text-decoration: none;
 }
 
 .cards_button
@@ -228,4 +235,29 @@
   background: #FDB100;
   color: #FFF;
   border: none;
+}
+
+.back::before
+{
+  content: "←";
+  position: absolute;
+  top: -2px;
+  left: -30px;
+  cursor: pointer;
+}
+
+.back
+{
+  display: block;
+  margin: 27px 0 0 10.7%;
+  position: relative;
+  width: 58px;
+  height: 22px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FDB100;
+  cursor: pointer;
 }

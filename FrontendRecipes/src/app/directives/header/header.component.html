@@ -3,7 +3,7 @@
     <span class="recipes">Recipes</span>
     <button (click)="goToMainPage()"class="header_button header_button__main">Главная</button>
     <button (click)="goToRecipePage()" class="header_button header_button__recipes">Рецепты</button>
-    <button class="header_button header_button__favorites">Избранное</button>
+    <button (click)="goToFavoritesPage()" class="header_button header_button__favorites">Избранное</button>
   </div>
   <button (click)="openPopupSwitch()" class="header_button header_button__enter">Войти</button>
 </div>

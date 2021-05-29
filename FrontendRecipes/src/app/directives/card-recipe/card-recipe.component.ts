@@ -18,10 +18,16 @@ export class CardRecipeComponent implements OnInit {
 
   public switchFavoriteRecipe() {
     this.isFavoriteRecipe = !this.isFavoriteRecipe;
+    (this.isFavoriteRecipe)
+      ? this.content.favorites--
+      : this.content.favorites++
   }
 
   public switchLikedRecipe() {
     this.isLikedRecipe = !this.isLikedRecipe;
+    (this.isLikedRecipe)
+      ? this.content.likes--
+      : this.content.likes++
   }
 
   ngOnInit(): void {

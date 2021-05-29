@@ -24,6 +24,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['recipe']);
   }
 
+  public goToFavoritesPage(): void {
+    this.router.navigate(['favorites']);
+  }
+
   ngOnInit(): void {
   }
 

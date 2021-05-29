@@ -16,7 +16,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CardRecipeComponent } from './directives/card-recipe/card-recipe.component';
 import { NewRecipeComponent } from './directives/new-recipe/new-recipe.component';
-// import {MatChipsModule} from '@angular/material/chips';
 import { RecipeComponent } from './directives/recipe/recipe.component';
 import { StepRecipeComponent } from './directives/step-recipe/step-recipe.component';
 
@@ -31,10 +30,9 @@ import { StepRecipeComponent } from './directives/step-recipe/step-recipe.compon
     PopupAuthorizationComponent,
     PopupSwitchComponent,
     RecipesComponent,
-    CardRecipeComponent,
-    NewRecipeComponent
-
     RecipeComponent,
+    CardRecipeComponent,
+    NewRecipeComponent,
     StepRecipeComponent
   ],
   imports: [
@@ -42,7 +40,6 @@ import { StepRecipeComponent } from './directives/step-recipe/step-recipe.compon
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    // MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

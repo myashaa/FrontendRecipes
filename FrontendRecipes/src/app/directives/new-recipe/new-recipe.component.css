@@ -58,11 +58,43 @@
 
 .recipe_photo
 {
-  /* width: 430px;
+  width: 430px;
   height: 430px;
   background: linear-gradient(0deg, #FFEFCC, #FFEFCC), #FFFCF7;
-  border-radius: 72px 0px; */
+  border-radius: 72px 0px;
   cursor: pointer;
+  position: relative;
+}
+
+.recipe_photo::before
+{
+  content: url("/assets/images/download.png");
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 164px;
+  left: 192px;
+}
+
+.recipe_photo::after
+{
+  content: url("/assets/images/download-text.png");
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 240px;
+  left: 150px;
+}
+
+.recipe_box
+{
+  position: absolute;
+  top: 84px;
+  left: 79px;
+  width: 268px;
+  height: 267px;
+  border-radius: 20px;
+  border: 1px dashed #FDB100;
 }
 
 .description

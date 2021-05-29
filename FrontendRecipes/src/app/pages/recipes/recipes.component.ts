@@ -14,6 +14,7 @@ export class RecipesComponent implements OnInit {
 
   main: boolean = true;
   detailed: boolean = false;
+  added: boolean = false;
 
   constructor(private recipeService: RecipeService) { }
 
@@ -22,16 +23,27 @@ export class RecipesComponent implements OnInit {
     this.recipeService.getRecipes().then((recipes: RecipeDto[]) => {
       this.recipes = recipes;
     });
+
+    if ((window.location.href == "http://localhost:4200/recipe/added") && (!this.added)) {
+      this.main = false;
+      this.added = true;
+    }
   }
 
-  public showRecipe(recipe: RecipeDto) {
+  public showRecipe(recipe: RecipeDto): void {
     this.main = false;
     this.detailed = true;
     this.currentRecipe = recipe;
   }
 
-  public showRecipes() {
+  public addRecipe(): void {
+    this.main = false;
+    this.added = true;
+  }
+
+  public showRecipes(): void {
     this.main = true;
     this.detailed = false;
+    this.added = false;
   }
 }

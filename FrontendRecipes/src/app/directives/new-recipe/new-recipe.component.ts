@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material/chips';
-import { Tag } from '../../js/tag-recipe';
-import { BlockContent } from 'src/app/js/block-recipe';
-import { StepContent } from 'src/app/js/step-recipe';
+import { RecipeService } from 'src/app/js/services/recipe.service';
+import { RecipeDto } from 'src/app/js/dto/recipe.dto';
 
 @Component({
   selector: 'app-new-recipe',
@@ -12,68 +9,54 @@ import { StepContent } from 'src/app/js/step-recipe';
 })
 export class NewRecipeComponent implements OnInit {
 
-  public blocks!: BlockContent[];
-  public steps!: StepContent[];
+  public recipe: RecipeDto;
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) {
+    this.recipe = this.getEmptyRecipe();
+  }
 
   public addTitle() {
-    this.blocks.push({
+    this.recipe.ingredients.push({
       title: "",
-      ingridients: []
+      items: []
     });
   }
 
   public deleteTitle(block: number)
   {
-    this.blocks.splice(block, 1);
+    this.recipe.ingredients.splice(block, 1);
   }
   
   public addStep()
   {
-    this.steps.push({
+    this.recipe.steps.push({
+      number: this.recipe.steps.length,
       description: ""
     });
   }
 
   public deleteStep(step: number)
   {
-    this.steps.splice(step, 1);
+     this.recipe.steps.splice(step, 1);
   }
 
-  // visible = true;
-  // selectable = true;
-  // removable = true;
-  // addOnBlur = true;
-  // readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  // tags: Tag[] = [
-  //   {name: 'Lemon'},
-  //   {name: 'Lime'},
-  //   {name: 'Apple'},
-  // ];
-
-  // add(event: MatChipInputEvent): void {
-  //   const value = (event.value || '').trim();
-
-  //   // Add our fruit
-  //   if (value) {
-  //     this.tags.push({name: value});
-  //   }
-
-  //   // Clear the input value
-  //   // event.chipInput!.clear();
-  // }
-
-  // remove(fruit: Tag): void {
-  //   const index = this.tags.indexOf(fruit);
-
-  //   if (index >= 0) {
-  //     this.tags.splice(index, 1);
-  //   }
-  // }
-
+  private getEmptyRecipe(): RecipeDto {
+    return {
+      id: 0,
+      imageUrl: "",
+      author: "",
+      tags: [],
+      favorites: 0,
+      likes: 0,
+      name: "",
+      description: "",
+      cookingTimeInMinutes: 0,
+      totalPersons: 0,
+      ingredients: [],
+      steps: []
+    };
+  }
+  
   ngOnInit(): void {
-    this.blocks = [];
-    this.steps = [];
   }
 }

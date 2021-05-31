@@ -15,19 +15,19 @@ export class NewRecipeComponent implements OnInit {
     this.recipe = this.getEmptyRecipe();
   }
 
-  public addTitle() {
+  public addTitle(): void {
     this.recipe.ingredients.push({
       title: "",
       items: []
     });
   }
 
-  public deleteTitle(block: number)
+  public deleteTitle(block: number): void
   {
     this.recipe.ingredients.splice(block, 1);
   }
   
-  public addStep()
+  public addStep(): void
   {
     this.recipe.steps.push({
       number: this.recipe.steps.length,
@@ -35,9 +35,14 @@ export class NewRecipeComponent implements OnInit {
     });
   }
 
-  public deleteStep(step: number)
+  public deleteStep(step: number): void
   {
      this.recipe.steps.splice(step, 1);
+  }
+
+  public addRecipe(): void
+  {
+    this.recipeService.addRecipe(this.recipe).then(() => {});
   }
 
   private getEmptyRecipe(): RecipeDto {

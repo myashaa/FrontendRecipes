@@ -1,24 +1,24 @@
 <div class="new-recipe">
   <div class="title">
     <span class="title_text">Добавить новый рецепт</span>
-    <button class="title_button">Опубликовать</button>
+    <button class="title_button" (click)="addRecipe()">Опубликовать</button>
   </div>
   <div class="recipe">
     <div class="recipe_photo">
       <div class="recipe_box"></div>
     </div>
     <div class="description">
-      <input class="description_input description_input__big" placeholder="Название рецета" type="text" name="name">
+      <input class="description_input description_input__big" placeholder="Название рецета" type="text" name="name" [(ngModel)]="recipe.name">
       <textarea class="description_input description_input__big  description_input__text" placeholder="Краткое описание рецепта (150 символов)" 
-                maxlength="150" type="text" name="description"></textarea>
-      <input class="description_input description_input__big" placeholder="Добавить теги" type="text" name="tags">
+                maxlength="150" type="text" name="description" [(ngModel)]="recipe.description"></textarea>
+      <input class="description_input description_input__big" placeholder="Добавить теги" type="text" name="tags" [(ngModel)]="recipe.tags">
       <div class="description_numbers">
         <div class="description_numbers__number">
-          <input class="description_input description_input__small" placeholder="Время готовки" type="text" name="time">
+          <input class="description_input description_input__small" placeholder="Время готовки" type="text" name="time" [(ngModel)]="recipe.cookingTimeInMinutes">
           <label class="description_text description_text__time">Минут</label>
         </div>   
         <div class="description_numbers__number">   
-          <input class="description_input description_input__small" placeholder="Порций в блюде" type="text" name="persons">
+          <input class="description_input description_input__small" placeholder="Порций в блюде" type="text" name="persons" [(ngModel)]="recipe.totalPersons">
           <label class="description_text">Персон</label>
         </div>  
       </div>
@@ -29,8 +29,8 @@
       <span class="ingredients_header">Ингридиенты</span>
       <div class="ingredients_block" *ngFor="let ingredient of recipe.ingredients let i = index"> 
         <button mat-dialog-close class="exit exit_ingredient" (click)="deleteTitle(i)"><span class="exit-text">+</span></button>
-        <input class="ingredients_input" placeholder="Заголовок для ингридиентов" type="text" name="title">
-        <input class="ingredients_input ingredients_input__big" placeholder="Список продуктов для категории" type="text" name="ingredients">
+        <input class="ingredients_input" placeholder="Заголовок для ингридиентов" type="text" name="title" [(ngModel)]="ingredient.title">
+        <input class="ingredients_input ingredients_input__big" placeholder="Список продуктов для категории" type="text" name="ingredients" [(ngModel)]="ingredient.items">
       </div>
       <button class="add_button add_button__ingredient" (click)="addTitle()">Добавить заголовок</button>
     </div>
@@ -38,7 +38,7 @@
       <div class="step" *ngFor="let step of recipe.steps; let i = index">
         <button mat-dialog-close class="exit exit_step" (click)="deleteStep(i)"><span class="exit-text">+</span></button>
         <span class="step_header">Шаг {{i+1}}</span>
-        <textarea class="step_input" placeholder="Описание шага" type="text" name="ingredients"></textarea>
+        <textarea class="step_input" placeholder="Описание шага" type="text" name="ingredients" [(ngModel)]="step.description"></textarea>
       </div>
       <button class="add_button add_button__step" (click)="addStep()">Добавить шаг</button>
     </div>

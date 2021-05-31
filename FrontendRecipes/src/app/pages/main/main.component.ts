@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
   }
 
   public goToAddRecipe(): void {
-    this.router.navigate(['recipe/added']);
+    this.router.navigate(['added']);
   }
 
   ngOnInit(): void {

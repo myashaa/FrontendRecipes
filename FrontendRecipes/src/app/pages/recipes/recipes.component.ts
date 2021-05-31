@@ -24,7 +24,7 @@ export class RecipesComponent implements OnInit {
       this.recipes = recipes;
     });
 
-    if ((window.location.href == "http://localhost:4200/recipe/added") && (!this.added)) {
+    if ((window.location.pathname == "/added") && (!this.added)) {
       this.main = false;
       this.added = true;
     }

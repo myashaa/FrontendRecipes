@@ -18,6 +18,7 @@ import { CardRecipeComponent } from './directives/card-recipe/card-recipe.compon
 import { NewRecipeComponent } from './directives/new-recipe/new-recipe.component';
 import { RecipeComponent } from './directives/recipe/recipe.component';
 import { StepRecipeComponent } from './directives/step-recipe/step-recipe.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { StepRecipeComponent } from './directives/step-recipe/step-recipe.compon
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

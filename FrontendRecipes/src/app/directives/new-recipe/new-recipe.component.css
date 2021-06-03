@@ -42,6 +42,7 @@
 {
   background-color: #FFF;
   color: #FDB100;
+  transition: 700ms;
 }
 
 .recipe
@@ -124,12 +125,44 @@
   outline: none;
 }
 
+.description_block
+{
+  height: 50px;
+  padding: 6px 0 11px 27px;
+  border: 1px solid rgba(145, 150, 161, 0.4);
+  box-sizing: border-box;
+  border-radius: 16px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: rgba(37, 41, 45, 0.5);
+  outline: none;
+}
+
+.description_input:focus::placeholder {
+  transform: translate(0px, -17px);
+  font-size: 11px;
+  color: #FDB100;
+}
+
 .description_input:hover
 {
   border: 1px solid #FDB100;
 }
 
 .description_input:focus
+{
+  border: 1px solid #FDB100;
+}
+
+.description_block:hover
+{
+  border: 1px solid #FDB100;
+}
+
+.description_block:focus
 {
   border: 1px solid #FDB100;
 }
@@ -284,6 +317,12 @@
   outline: none;
 }
 
+.ingredients_input:focus::placeholder {
+  transform: translate(0px, -17px);
+  font-size: 11px;
+  color: #FDB100;
+}
+
 .ingredients_input:hover
 {
   border: 1px solid #FDB100;
@@ -353,6 +392,12 @@
   resize: none;
 }
 
+.step_input:focus::placeholder {
+  transform: translate(0px, -17px);
+  font-size: 11px;
+  color: #FDB100;
+}
+
 .step_input:hover
 {
   border: 1px solid #FDB100;
@@ -398,6 +443,7 @@
   box-sizing: border-box;
   background-color: #FDB100;
   color: #FFF;
+  transition: 700ms;
 }
 
 .add_button::before

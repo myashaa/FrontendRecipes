@@ -25,6 +25,7 @@
     </div>
     <div class="cards">
       <a href="http://localhost:4200/recipe#detailed" class="card_link"><app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe></a>
+      <!-- <app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe> -->
       <button class="cards_button">Загрузить еще</button>
     </div>
   </div>

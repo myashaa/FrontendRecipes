@@ -8,17 +8,31 @@
       <div class="recipe_box"></div>
     </div>
     <div class="description">
-      <input class="description_input description_input__big" placeholder="Название рецета" type="text" name="name" [(ngModel)]="recipe.name">
+      <input class="description_input description_input__big" placeholder="Название рецета" type="text" name="name" [(ngModel)]="recipe.name" autocomplete="off">
       <textarea class="description_input description_input__big  description_input__text" placeholder="Краткое описание рецепта (150 символов)" 
-                maxlength="150" type="text" name="description" [(ngModel)]="recipe.description"></textarea>
-      <input class="description_input description_input__big" placeholder="Добавить теги" type="text" name="tags" [(ngModel)]="recipe.tags">
+                maxlength="150" type="text" name="description" [(ngModel)]="recipe.description" autocomplete="off"></textarea>
+      <!-- <input class="description_input description_input__big" placeholder="Добавить теги" type="text" name="tags" autocomplete="off"> -->
+      <div class="description_block description_input__big">
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                  [removable]="removable" (removed)="remove(fruit)">
+            {{fruit.name}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="Добавить теги" autocomplete="off"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </div>  
       <div class="description_numbers">
         <div class="description_numbers__number">
-          <input class="description_input description_input__small" placeholder="Время готовки" type="text" name="time" [(ngModel)]="recipe.cookingTimeInMinutes">
+          <input class="description_input description_input__small" placeholder="Время готовки" type="text" name="time" [(ngModel)]="recipe.cookingTimeInMinutes" autocomplete="off">
           <label class="description_text description_text__time">Минут</label>
         </div>   
         <div class="description_numbers__number">   
-          <input class="description_input description_input__small" placeholder="Порций в блюде" type="text" name="persons" [(ngModel)]="recipe.totalPersons">
+          <input class="description_input description_input__small" placeholder="Порций в блюде" type="text" name="persons" [(ngModel)]="recipe.totalPersons" autocomplete="off">
           <label class="description_text">Персон</label>
         </div>  
       </div>
@@ -29,8 +43,22 @@
       <span class="ingredients_header">Ингридиенты</span>
       <div class="ingredients_block" *ngFor="let ingredient of recipe.ingredients let i = index"> 
         <button mat-dialog-close class="exit exit_ingredient" (click)="deleteTitle(i)"><span class="exit-text">+</span></button>
-        <input class="ingredients_input" placeholder="Заголовок для ингридиентов" type="text" name="title" [(ngModel)]="ingredient.title">
-        <input class="ingredients_input ingredients_input__big" placeholder="Список продуктов для категории" type="text" name="ingredients" [(ngModel)]="ingredient.items">
+        <input class="ingredients_input" placeholder="Заголовок для ингридиентов" type="text" name="title" [(ngModel)]="ingredient.title" autocomplete="off">
+        <!-- <textarea class="ingredients_input ingredients_input__big" placeholder="Список продуктов для категории" type="text" name="ingredients" [(ngModel)]="ingredient.items" autocomplete="off"></textarea> -->
+        <div class="ingredients_input ingredients_input__big">
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                  [removable]="removable" (removed)="remove(fruit)">
+            {{fruit.name}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="Список продуктов для категории" autocomplete="off"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </div> 
       </div>
       <button class="add_button add_button__ingredient" (click)="addTitle()">Добавить заголовок</button>
     </div>
@@ -38,7 +66,7 @@
       <div class="step" *ngFor="let step of recipe.steps; let i = index">
         <button mat-dialog-close class="exit exit_step" (click)="deleteStep(i)"><span class="exit-text">+</span></button>
         <span class="step_header">Шаг {{i+1}}</span>
-        <textarea class="step_input" placeholder="Описание шага" type="text" name="ingredients" [(ngModel)]="step.description"></textarea>
+        <textarea class="step_input" placeholder="Описание шага" type="text" name="ingredients" [(ngModel)]="step.description" autocomplete="off"></textarea>
       </div>
       <button class="add_button add_button__step" (click)="addStep()">Добавить шаг</button>
     </div>

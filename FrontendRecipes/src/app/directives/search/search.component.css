@@ -60,6 +60,7 @@
   background-color: #FFF;
   border: 1px solid #FDB100;
   color: #FDB100;
+  transition: 700ms;
 }
 
 .sections

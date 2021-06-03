@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PopupSwitchComponent } from '../../directives/popup-switch/popup-switch.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 
 @Component({
   selector: 'app-main',
@@ -17,7 +18,7 @@ export class MainComponent implements OnInit {
   }
 
   public goToAddRecipe(): void {
-    this.router.navigate(['added']);
+    this.router.navigate([ProjectUrls.AddUrl]);
   }
 
   ngOnInit(): void {

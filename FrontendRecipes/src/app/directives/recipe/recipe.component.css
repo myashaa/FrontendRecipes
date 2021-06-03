@@ -54,6 +54,8 @@
 {
   background: #FDB100;
   border: 1px solid #FDB100;
+  transition: 700ms;
+
 }
 
 .title_button__delete
@@ -79,6 +81,7 @@
   border: 1px solid #FDB100;
   background-color: #FFF;
   color: #FDB100;
+  transition: 700ms;
 }
 
 .title_button__edit

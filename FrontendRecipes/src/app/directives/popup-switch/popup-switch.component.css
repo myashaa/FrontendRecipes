@@ -94,10 +94,11 @@
 
 .popup-switch_button__authorization:hover
 {
-  background-color: #FFF;
+  background-color: rgb(253, 137, 0, 0.1);
   border: 1px solid #FDB100;
   box-sizing: border-box; 
   color: #FDB100;
+  transition: 700ms;
 }
 
 .popup-switch_button__registration
@@ -110,7 +111,8 @@
 
 .popup-switch_button__registration:hover
 {
-  background: #FDB100;
+  background: rgb(253, 137, 0, 0.9);
   border: none;
   color: #FFFFFF;
+  transition: 700ms;
 }

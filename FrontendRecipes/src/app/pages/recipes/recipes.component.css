@@ -1,7 +1,9 @@
 .recipes-page
 {
-  /* background: url(images/wave1.png) top 90px left 0/1440px 1403px no-repeat, url(images/wave2.png) top 1140px left 0/1440px 1403px no-repeat, #FEFEFB; */
-  width: 100%;
+  /* background: url(/assets/images/wave1.png) top 90px left 0/1440px 1403px no-repeat, url(/assets/images/wave2.png) top 1140px left 0/1440px 1403px no-repeat, #FEFEFB; */
+  /* width: 100%; */
+  width: 1440px;
+  margin: 0 auto;
   padding: 0;
 }
 

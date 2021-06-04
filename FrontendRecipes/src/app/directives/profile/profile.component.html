@@ -1,0 +1,37 @@
+<div class="profile">
+  <div class="title">
+    <span class="title_text">Мой профиль</span>
+  </div>
+  <div class="data">
+    <button class="edit">
+      <img class="card_image" src="/assets/images/edit2.png" alt="edit photo"/>
+    </button>
+    <div class="data_inputs">
+      <input class="data_input data_input__small" placeholder="Имя" type="text" name="name" autocomplete="off">
+      <input class="data_input data_input__small" placeholder="Логин" type="text" name="login" autocomplete="off">
+      <input class="data_input data_input__small" placeholder="Пароль" type="password" name="password"  autocomplete="off">
+    </div>
+    <textarea class="data_input data_input__big" placeholder="Напишите немного о себе" type="text" name="description"></textarea>
+  </div>
+  <div class="mini-cards">
+    <!-- <div class="mini-card" *ngFor="let section of sections"> -->
+    <div class="mini-card">  
+      <span class="mini-card_text">Всего рецептов</span>
+      <span class="mini-card_number">15</span>
+    </div>
+    <div class="mini-card mini-card_2">
+      <span class="mini-card_text">Всего лайков</span>
+      <span class="mini-card_number">15</span>
+    </div>
+    <div class="mini-card mini-card_3">
+      <span class="mini-card_text">В избранных</span>
+      <span class="mini-card_number">15</span>
+    </div>
+  </div>
+  <div class="recipes">
+    <span class="recipes_header">Мои рецепты</span>
+    <app-card-recipe class="recipe"></app-card-recipe>
+    <app-card-recipe class="recipe recipe_last"></app-card-recipe>
+  </div>
+  <!-- <app-card-recipe class="card" [content]="recipe"></app-card-recipe> -->
+</div>

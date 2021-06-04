@@ -32,11 +32,11 @@ export class RecipesComponent implements OnInit {
       this.added = false;
     }
 
-    // if ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (!this.detailed)) {
-    //   this.main = false;
-    //   this.detailed = true;
-    //   this.added = false;
-    // }
+    if ((window.location.pathname == `/${ProjectUrls.RecipeUrl}`) && (!this.detailed)) {
+      this.main = false;
+      this.detailed = true;
+      this.added = false;
+    }
 
     if ((window.location.pathname == `/${ProjectUrls.AddUrl}`) && (!this.added)) {
       this.main = false;
@@ -46,23 +46,15 @@ export class RecipesComponent implements OnInit {
   }
 
   public showRecipe(recipe: RecipeDto): void {
-    this.main = false;
-    this.detailed = true;
     this.currentRecipe = recipe;
-    // this.router.navigate([ProjectUrls.RecipeUrl]);
-    // this.currentRecipe = recipe;
+    this.router.navigate([ProjectUrls.RecipeUrl]);
   }
 
   public addRecipe(): void {
-    // this.main = false;
-    // this.added = true;
     this.router.navigate([ProjectUrls.AddUrl]);
   }
 
   public showRecipes(): void {
-  //   this.main = true;
-  //   this.detailed = false;
-  //   this.added = false;
     this.router.navigate([ProjectUrls.RecipesUrl]);
   }
 }

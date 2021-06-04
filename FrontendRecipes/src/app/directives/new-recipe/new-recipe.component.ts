@@ -6,10 +6,6 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
 import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 
-export interface Fruit {
-  name: string;
-}
-
 @Component({
   selector: 'app-new-recipe',
   templateUrl: './new-recipe.component.html',
@@ -72,27 +68,40 @@ export class NewRecipeComponent implements OnInit {
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  fruits: Fruit[] = [];
 
-  add(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
-
+  addTag(event: MatChipInputEvent): void {
+    const tag: string = (event.value || '').trim();
     // Add our fruit
-    if (value) {
-      this.fruits.push({ name: value });
+    if (tag) {
+      this.recipe.tags.push(tag);
     }
-
     // Clear the input value
-    // event.chipInput!.clear();
+    event.input.value = '';
   }
 
-  remove(fruit: Fruit): void {
-    const index = this.fruits.indexOf(fruit);
-
+  removeTag(tag: string): void {
+    const index = this.recipe.tags.indexOf(tag);
     if (index >= 0) {
-      this.fruits.splice(index, 1);
+      this.recipe.tags.splice(index, 1);
     }
   }
+
+  // addIngredient(event: MatChipInputEvent): void {
+  //   const item: string = (event.value || '').trim();
+  //   // Add our fruit
+  //   if (item) {
+  //     this.recipe.ingredients.items.push(item);
+  //   }
+  //   // Clear the input value
+  //   event.input.value = '';
+  // }
+
+  // removeIngredient(item: string): void {
+  //   const index = this.recipe.ingredients.items.indexOf(item);
+  //   if (index >= 0) {
+  //     this.recipe.ingredients.items.splice(index, 1);
+  //   }
+  // }
 
   ngOnInit(): void {
   }

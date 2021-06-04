@@ -13,17 +13,17 @@
                 maxlength="150" type="text" name="description" [(ngModel)]="recipe.description" autocomplete="off"></textarea>
       <!-- <input class="description_input description_input__big" placeholder="Добавить теги" type="text" name="tags" autocomplete="off"> -->
       <div class="description_block description_input__big">
-        <mat-chip-list #chipList aria-label="Fruit selection">
-          <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
-                  [removable]="removable" (removed)="remove(fruit)">
-            {{fruit.name}}
+        <mat-chip-list #chipList aria-label="Tags selection">
+          <mat-chip *ngFor="let tag of recipe.tags" [selectable]="selectable"
+                  [removable]="removable" (removed)="removeTag(tag)">
+            {{tag}}
             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
           </mat-chip>
           <input placeholder="Добавить теги" autocomplete="off"
                 [matChipInputFor]="chipList"
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                 [matChipInputAddOnBlur]="addOnBlur"
-                (matChipInputTokenEnd)="add($event)">
+                (matChipInputTokenEnd)="addTag($event)">
         </mat-chip-list>
       </div>  
       <div class="description_numbers">
@@ -46,18 +46,18 @@
         <input class="ingredients_input" placeholder="Заголовок для ингридиентов" type="text" name="title" [(ngModel)]="ingredient.title" autocomplete="off">
         <!-- <textarea class="ingredients_input ingredients_input__big" placeholder="Список продуктов для категории" type="text" name="ingredients" [(ngModel)]="ingredient.items" autocomplete="off"></textarea> -->
         <div class="ingredients_input ingredients_input__big">
-        <mat-chip-list #chipList aria-label="Fruit selection">
-          <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
-                  [removable]="removable" (removed)="remove(fruit)">
-            {{fruit.name}}
+        <!-- <mat-chip-list #chipList aria-label="Ingredient selection">
+          <mat-chip *ngFor="let item of ingredient.items" [selectable]="selectable"
+                  [removable]="removable" (removed)="removeIngredient(item)">
+            {{item}}
             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
           </mat-chip>
           <input placeholder="Список продуктов для категории" autocomplete="off"
                 [matChipInputFor]="chipList"
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                 [matChipInputAddOnBlur]="addOnBlur"
-                (matChipInputTokenEnd)="add($event)">
-        </mat-chip-list>
+                (matChipInputTokenEnd)="addIngredient($event)">
+        </mat-chip-list> -->
       </div> 
       </div>
       <button class="add_button add_button__ingredient" (click)="addTitle()">Добавить заголовок</button>

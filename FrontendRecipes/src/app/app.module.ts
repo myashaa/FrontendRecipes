@@ -17,6 +17,8 @@ import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CardRecipeComponent } from './directives/card-recipe/card-recipe.component';
 import { RecipeComponent } from './directives/recipe/recipe.component';
 import { StepRecipeComponent } from './directives/step-recipe/step-recipe.component';
+import { ProfileComponent } from './directives/profile/profile.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,13 +33,15 @@ import { StepRecipeComponent } from './directives/step-recipe/step-recipe.compon
     RecipesComponent,
     CardRecipeComponent,
     RecipeComponent,
-    StepRecipeComponent
+    StepRecipeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

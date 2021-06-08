@@ -7,7 +7,9 @@ export interface RecipeDto {
   author: string;
   tags: string[];
   favorites: number;
+  isFavorite: boolean;
   likes: number;
+  isLike: boolean;
   name: string;
   description: string;
   cookingTimeInMinutes: number;

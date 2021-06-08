@@ -7,31 +7,28 @@
       <img class="card_image" src="/assets/images/edit2.png" alt="edit photo"/>
     </button>
     <div class="data_inputs">
-      <input class="data_input data_input__small" placeholder="Имя" type="text" name="name" autocomplete="off">
-      <input class="data_input data_input__small" placeholder="Логин" type="text" name="login" autocomplete="off">
-      <input class="data_input data_input__small" placeholder="Пароль" type="password" name="password"  autocomplete="off">
+      <input class="data_input data_input__small" placeholder="Имя" type="text" name="name" [(ngModel)]="author.name" autocomplete="off">
+      <input class="data_input data_input__small" placeholder="Логин" type="text" name="login" [(ngModel)]="author.login" autocomplete="off">
+      <input class="data_input data_input__small" placeholder="Пароль" type="password" name="password" [(ngModel)]="author.password" autocomplete="off">
     </div>
-    <textarea class="data_input data_input__big" placeholder="Напишите немного о себе" type="text" name="description"></textarea>
+    <textarea class="data_input data_input__big" placeholder="Напишите немного о себе" type="text" name="description" [(ngModel)]="author.description"></textarea>
   </div>
   <div class="mini-cards">
-    <!-- <div class="mini-card" *ngFor="let section of sections"> -->
     <div class="mini-card">  
       <span class="mini-card_text">Всего рецептов</span>
-      <span class="mini-card_number">15</span>
+      <span class="mini-card_number">{{author.amountOfRecipes}}</span>
     </div>
     <div class="mini-card mini-card_2">
       <span class="mini-card_text">Всего лайков</span>
-      <span class="mini-card_number">15</span>
+      <span class="mini-card_number">{{author.amountOfLikes}}</span>
     </div>
     <div class="mini-card mini-card_3">
       <span class="mini-card_text">В избранных</span>
-      <span class="mini-card_number">15</span>
+      <span class="mini-card_number">{{author.amountOfFavorites}}</span>
     </div>
   </div>
   <div class="recipes">
     <span class="recipes_header">Мои рецепты</span>
-    <app-card-recipe class="recipe"></app-card-recipe>
-    <app-card-recipe class="recipe recipe_last"></app-card-recipe>
+    <app-card-recipe class="recipe" *ngFor="let recipe of recipes" [content]="recipe"></app-card-recipe>
   </div>
-  <!-- <app-card-recipe class="card" [content]="recipe"></app-card-recipe> -->
 </div>

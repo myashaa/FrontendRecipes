@@ -1,6 +1,6 @@
 <div id="detailed" class="recipes-page">
   <app-header></app-header>
-  <!-- <div class="main" *ngIf="main">
+  <div class="main" *ngIf="main">
     <div class="title">
       <span class="title_text">Рецепты</span>
       <button class="title_button">Добавить рецепт</button>
@@ -31,8 +31,8 @@
   <div class="detailed" *ngIf="detailed">
     <a class="back" (click)="showRecipes()">Назад</a>
     <app-recipe [recipe]="currentRecipe"></app-recipe>
-  </div> -->
-  <div class="profile"  >
+  </div> 
+  <div class="profile">
     <a class="back" (click)="showRecipes()">Назад</a>
     <app-profile></app-profile>
   </div>

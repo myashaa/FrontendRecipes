@@ -209,7 +209,7 @@
   margin-bottom: 20px;
 }
 
-.recipe_last
+.recipe:last-child
 {
   margin-bottom: 70px;
 }

@@ -20,6 +20,7 @@
   font-size: 42px;
   line-height: 62px;
   color: #25292D;
+  text-transform: capitalize;
 }
 
 .buttons
@@ -157,6 +158,7 @@
   font-size: 18px;
   line-height: 30px;
   color: #4A525A;
+  text-transform: capitalize;
 }
 
 .ingredients_ingredient
@@ -168,6 +170,7 @@
   font-size: 18px;
   line-height: 30px;
   color: #4A525A;
+  text-transform: lowercase;
 }
 
 .steps

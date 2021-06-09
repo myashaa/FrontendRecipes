@@ -84,6 +84,7 @@
   margin-right: 3%;
   cursor: pointer;
   white-space: nowrap;
+  text-transform: lowercase;
 }
 
 .buttons

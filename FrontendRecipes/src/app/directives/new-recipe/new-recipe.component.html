@@ -11,7 +11,6 @@
       <input class="description_input description_input__big" placeholder="Название рецета" type="text" name="name" [(ngModel)]="recipe.name" autocomplete="off">
       <textarea class="description_input description_input__big  description_input__text" placeholder="Краткое описание рецепта (150 символов)" 
                 maxlength="150" type="text" name="description" [(ngModel)]="recipe.description" autocomplete="off"></textarea>
-      <!-- <input class="description_input description_input__big" placeholder="Добавить теги" type="text" name="tags" autocomplete="off"> -->
       <div class="description_block description_input__big">
         <mat-chip-list #chipList aria-label="Tags selection">
           <mat-chip *ngFor="let tag of recipe.tags" [selectable]="selectable"
@@ -44,11 +43,10 @@
       <div class="ingredients_block" *ngFor="let ingredient of recipe.ingredients let i = index"> 
         <button mat-dialog-close class="exit exit_ingredient" (click)="deleteTitle(i)"><span class="exit-text">+</span></button>
         <input class="ingredients_input" placeholder="Заголовок для ингридиентов" type="text" name="title" [(ngModel)]="ingredient.title" autocomplete="off">
-        <!-- <textarea class="ingredients_input ingredients_input__big" placeholder="Список продуктов для категории" type="text" name="ingredients" [(ngModel)]="ingredient.items" autocomplete="off"></textarea> -->
         <div class="ingredients_input ingredients_input__big">
-        <!-- <mat-chip-list #chipList aria-label="Ingredient selection">
+        <mat-chip-list #chipList aria-label="Ingredient selection">
           <mat-chip *ngFor="let item of ingredient.items" [selectable]="selectable"
-                  [removable]="removable" (removed)="removeIngredient(item)">
+                  [removable]="removable" (removed)="removeIngredient(item, ingredient)">
             {{item}}
             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
           </mat-chip>
@@ -56,8 +54,8 @@
                 [matChipInputFor]="chipList"
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                 [matChipInputAddOnBlur]="addOnBlur"
-                (matChipInputTokenEnd)="addIngredient($event)">
-        </mat-chip-list> -->
+                (matChipInputTokenEnd)="addIngredient($event, ingredient)">
+        </mat-chip-list>
       </div> 
       </div>
       <button class="add_button add_button__ingredient" (click)="addTitle()">Добавить заголовок</button>

@@ -5,6 +5,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
 import { ProjectUrls } from 'src/app/js/constants/projectUrls';
+import { IngredientDto } from 'src/app/js/dto/ingredient.dto';
 
 @Component({
   selector: 'app-new-recipe',
@@ -49,7 +50,7 @@ export class NewRecipeComponent implements OnInit {
   private getEmptyRecipe(): RecipeDto {
     return {
       id: 0,
-      imageUrl: "",
+      imageUrl: "assets/images/default.png",
       author: "",
       tags: [],
       favorites: 0,
@@ -86,22 +87,22 @@ export class NewRecipeComponent implements OnInit {
     }
   }
 
-  // addIngredient(event: MatChipInputEvent): void {
-  //   const item: string = (event.value || '').trim();
-  //   // Add our fruit
-  //   if (item) {
-  //     this.recipe.ingredients.items.push(item);
-  //   }
-  //   // Clear the input value
-  //   event.input.value = '';
-  // }
+  addIngredient(event: MatChipInputEvent, ingredient: IngredientDto): void {
+    const item: string = (event.value || '').trim();
+    // Add our fruit
+    if (item) {
+      ingredient.items.push(item);
+    }
+    // Clear the input value
+    event.input.value = '';
+  }
 
-  // removeIngredient(item: string): void {
-  //   const index = this.recipe.ingredients.items.indexOf(item);
-  //   if (index >= 0) {
-  //     this.recipe.ingredients.items.splice(index, 1);
-  //   }
-  // }
+  removeIngredient(item: string, ingredient: IngredientDto): void {
+    const index = ingredient.items.indexOf(item);
+    if (index >= 0) {
+      ingredient.items.splice(index, 1);
+    }
+  }
 
   ngOnInit(): void {
   }

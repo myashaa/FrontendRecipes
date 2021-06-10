@@ -64,6 +64,12 @@
   outline: none;
 }
 
+.popup-registration_input:focus::placeholder {
+  transform: translate(0px, -17px);
+  font-size: 11px;
+  color: #FDB100;
+}
+
 .popup-registration_input:hover
 {
   border: 1px solid #FDB100;
@@ -143,10 +149,11 @@
 
 .popup-registration_button__registration:hover
 {
-  background-color: #FFF;
+  background-color: rgb(253, 137, 0, 0.1);
   border: 1px solid #FDB100;
   box-sizing: border-box; 
   color: #FDB100;
+  transition: 700ms;
 }
 
 .popup-registration_button__cancel
@@ -159,9 +166,10 @@
 
 .popup-registration_button__cancel:hover
 {
-  background: #FDB100;
+  background: rgb(253, 137, 0, 0.9);
   border: none;
   color: #FFFFFF;
+  transition: 700ms;
 }
 
 .popup-registration_text

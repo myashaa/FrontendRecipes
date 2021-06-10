@@ -65,6 +65,12 @@
   outline: none;
 }
 
+.popup-authorization_input:focus::placeholder {
+  transform: translate(0px, -17px);
+  font-size: 11px;
+  color: #FDB100;
+}
+
 .popup-authorization_input:hover
 {
   border: 1px solid #FDB100;
@@ -109,10 +115,11 @@
 
 .popup-authorization_button__authorization:hover
 {
-  background-color: #FFF;
+  background-color: rgb(253, 137, 0, 0.1);
   border: 1px solid #FDB100;
   box-sizing: border-box; 
   color: #FDB100;
+  transition: 700ms;
 }
 
 .popup-authorization_button__cancel
@@ -125,9 +132,10 @@
 
 .popup-authorization_button__cancel:hover
 {
-  background: #FDB100;
+  background: rgb(253, 137, 0, 0.9);
   border: none;
   color: #FFFFFF;
+  transition: 700ms;
 }
 
 .popup-authorization_text

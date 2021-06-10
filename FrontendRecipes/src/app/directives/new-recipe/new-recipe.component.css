@@ -1,0 +1,460 @@
+.title
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 83.2%;                                   
+  height: 112px;
+  padding: 10px 8.4% 0;
+}
+
+.title_text
+{
+  width: 811px;
+  height: 62px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 62px;
+  color: #25292D;
+}
+
+.title_button
+{
+  width: 23%;
+  height: 60px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #FFFFFF;
+  background: #FDB100;
+  border: 1px solid #FDB100;
+}
+
+.title_button:hover
+{
+  background-color: #FFF;
+  color: #FDB100;
+  transition: 700ms;
+}
+
+.recipe
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 78.4%;
+  height: 430px;
+  padding: 0 13.2% 0 8.4%;
+}
+
+.recipe_photo
+{
+  width: 430px;
+  height: 430px;
+  background: linear-gradient(0deg, #FFEFCC, #FFEFCC), #FFFCF7;
+  border-radius: 72px 0px;
+  cursor: pointer;
+  position: relative;
+}
+
+.recipe_photo::before
+{
+  content: url("/assets/images/download.png");
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 164px;
+  left: 192px;
+}
+
+.recipe_photo::after
+{
+  content: url("/assets/images/download-text.png");
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 240px;
+  left: 150px;
+}
+
+.recipe_box
+{
+  position: absolute;
+  top: 84px;
+  left: 79px;
+  width: 268px;
+  height: 267px;
+  border-radius: 20px;
+  border: 1px dashed #FDB100;
+}
+
+.description
+{
+  padding: 50px 0;
+  width: 57.4%;
+  display: -webkit-flex; 
+  -webkit-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description_input
+{
+  height: 50px;
+  padding: 11px 0 11px 26px;
+  border: 1px solid rgba(145, 150, 161, 0.4);
+  box-sizing: border-box;
+  border-radius: 16px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: rgba(37, 41, 45, 0.5);
+  outline: none;
+}
+
+.description_block
+{
+  height: 50px;
+  padding: 6px 0 11px 27px;
+  border: 1px solid rgba(145, 150, 161, 0.4);
+  box-sizing: border-box;
+  border-radius: 16px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: rgba(37, 41, 45, 0.5);
+  outline: none;
+}
+
+.description_input:focus::placeholder {
+  transform: translate(0px, -17px);
+  font-size: 11px;
+  color: #FDB100;
+}
+
+.description_input:hover
+{
+  border: 1px solid #FDB100;
+}
+
+.description_input:focus
+{
+  border: 1px solid #FDB100;
+}
+
+.description_block:hover
+{
+  border: 1px solid #FDB100;
+}
+
+.description_block:focus
+{
+  border: 1px solid #FDB100;
+}
+
+.description_input__big
+{
+  width: 100%;
+}
+
+.description_input__small
+{
+  width: 73.5%;
+}
+
+.description_input__text
+{
+  resize: none;
+  height: 117px;
+}
+
+.description_numbers
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.description_numbers__number
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 45.9%;
+}
+
+.description_text
+{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: #25292D;
+  margin-top: 10px;
+}
+
+.description_text__time
+{
+  margin-right: 4%;
+}
+
+.recipe-container
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 41px 8.4% 0;
+}
+
+.ingredients
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 31.7%;
+}
+
+.ingredients_header
+{
+  margin-bottom: 30px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: capitalize;
+  color: #4A525A;
+}
+
+.exit
+{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.exit_ingredient
+{
+  right: -12px;
+  top: -47px;
+}
+
+.exit_step
+{
+  right: 56px;
+  top: 36px;
+}
+
+.exit-text
+{
+  display: block;
+  transform: rotate(45deg);
+  color: rgba(145, 150, 161, 0.4);
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.ingredients_block
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px 30px;
+  width: 320px;
+  min-height: 299px;
+  background: #FFFFFF;
+  box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
+  border-radius: 24px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.ingredients_input
+{
+  width: 100%;
+  height: 50px;
+  padding: 11px 0 11px 26px;
+  border: 1px solid rgba(145, 150, 161, 0.4);
+  box-sizing: border-box;
+  border-radius: 16px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: rgba(37, 41, 45, 0.5);
+  outline: none;
+}
+
+.ingredients_input:focus::placeholder {
+  transform: translate(0px, -17px);
+  font-size: 11px;
+  color: #FDB100;
+}
+
+.ingredients_input:hover
+{
+  border: 1px solid #FDB100;
+}
+
+.ingredients_input:focus
+{
+  border: 1px solid #FDB100;
+}
+
+.ingredients_input__big
+{
+  min-height: 229px;
+}
+
+.steps
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+}
+
+.step
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 82.3%;
+  min-height: 212px;
+  background: #FFFFFF;
+  box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
+  border-radius: 24px;
+  padding: 48px 70px 69px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.step_header
+{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+  color: #4A525A;
+  margin-bottom: 17px;
+}
+
+.step_input
+{
+  width: 100%;
+  min-height: 166px;
+  padding: 11px 0 11px 26px;
+  border: 1px solid rgba(145, 150, 161, 0.4);
+  box-sizing: border-box;
+  border-radius: 16px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: rgba(37, 41, 45, 0.5);
+  outline: none;
+  resize: none;
+}
+
+.step_input:focus::placeholder {
+  transform: translate(0px, -17px);
+  font-size: 11px;
+  color: #FDB100;
+}
+
+.step_input:hover
+{
+  border: 1px solid #FDB100;
+}
+
+.step_input:focus
+{
+  border: 1px solid #FDB100;
+}
+
+.add_button
+{
+  height: 60px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  background: #FFF;
+  color: #FDB100;
+  border: 1px solid #FDB100;
+  position: relative;
+  width: 380px;
+}
+
+.add_button__ingredient
+{
+  padding-left: 9%;
+  margin-bottom: 106px;
+}
+
+.add_button__step
+{
+  padding-left: 2.2%;
+  margin: 20px auto 106px;
+}
+
+
+.add_button:hover
+{
+  box-sizing: border-box;
+  background-color: #FDB100;
+  color: #FFF;
+  transition: 700ms;
+}
+
+.add_button::before
+{
+  content: "+";
+  color: #FDB100;
+  font-size: 34px;
+  font-weight: 300;
+  position: absolute;
+  top: 16px;
+  left: 8.5%;
+}
+
+.add_button:hover:before{color:#FFF}

@@ -55,6 +55,12 @@
   color: #3A3C41;
 }
 
+.active
+{
+  font-weight: 600!important;
+  color: #3A3C41!important;
+}
+
 .header_button__main
 {
   width: 76px;

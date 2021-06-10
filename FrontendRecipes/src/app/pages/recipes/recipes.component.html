@@ -3,7 +3,7 @@
   <div class="main" *ngIf="main">
     <div class="title">
       <span class="title_text">Рецепты</span>
-      <button class="title_button">Добавить рецепт</button>
+      <button class="title_button" (click)="addRecipe()">Добавить рецепт</button>
     </div>
     <div class="mini-cards">
       <div class="mini-card mini-card_1">
@@ -24,9 +24,14 @@
       <div class="search_directive"><app-search></app-search></div>
     </div>
     <div class="cards">
-      <a href="http://localhost:4200/recipe#detailed" class="card_link"><app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe></a>
+      <!-- <a href="http://localhost:4200/recipe#detailed" class="card_link"><app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe></a> -->
+      <app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe>
       <button class="cards_button">Загрузить еще</button>
     </div>
+  </div>
+  <div class="added" *ngIf="added">
+    <a class="back" (click)="showRecipes()">Назад</a>
+    <app-new-recipe></app-new-recipe>
   </div>
   <div class="detailed" *ngIf="detailed">
     <a class="back" (click)="showRecipes()">Назад</a>

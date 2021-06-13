@@ -15,13 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CardRecipeComponent } from './directives/card-recipe/card-recipe.component';
-import { NewRecipeComponent } from './directives/new-recipe/new-recipe.component';
 import { RecipeComponent } from './directives/recipe/recipe.component';
 import { StepRecipeComponent } from './directives/step-recipe/step-recipe.component';
+import { ProfileComponent } from './directives/profile/profile.component';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -34,20 +31,17 @@ import { MatChipsModule } from '@angular/material/chips';
     PopupAuthorizationComponent,
     PopupSwitchComponent,
     RecipesComponent,
-    RecipeComponent,
     CardRecipeComponent,
-    NewRecipeComponent,
-    StepRecipeComponent
+    RecipeComponent,
+    StepRecipeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    FormsModule,
-    MatInputModule,
-    MatChipsModule,
-    MatIconModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

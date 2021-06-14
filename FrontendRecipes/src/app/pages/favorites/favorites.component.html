@@ -1,0 +1,11 @@
+<div class="favorites-page">
+  <app-header></app-header>
+  <div class="title">
+    <span class="title_text">Избранное</span>
+  </div>
+  <span class="empty" *ngIf="empty">Ваш список пуст</span> 
+  <div class="cards" *ngIf="!empty">
+    <app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe"></app-card-recipe>
+  </div>
+</div>
+<app-footer class="footer"></app-footer>

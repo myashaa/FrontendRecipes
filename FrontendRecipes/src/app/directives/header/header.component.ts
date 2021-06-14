@@ -14,6 +14,7 @@ import { ElementRef } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @ViewChild('main', { static: true }) Main!: ElementRef;
   @ViewChild('recipes', { static: true }) Recipes!: ElementRef;
+  @ViewChild('favorites', { static: true }) Favorites!: ElementRef;
 
   constructor(public dialog: MatDialog, private router: Router) { }
   
@@ -29,23 +30,29 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([ProjectUrls.RecipesUrl]);
   }
 
+  public goToFavoritesPage(): void {
+    this.router.navigate([ProjectUrls.FavoritesUrl]);
+  }
+
   ngOnInit(): void {
     console.log(this.Main);
     if (window.location.pathname == `/${ProjectUrls.MainUrl}`) {
       this.Main.nativeElement.classList.add('active');
       this.Recipes.nativeElement.classList.remove('active');
+      this.Favorites.nativeElement.classList.remove('active');
     }
 
     if (window.location.pathname == `/${ProjectUrls.RecipesUrl}`) {
       this.Recipes.nativeElement.classList.add('active');
       this.Main.nativeElement.classList.remove('active');
+      this.Favorites.nativeElement.classList.remove('active');
     }
 
-    // if ((window.location.pathname == `/${ProjectUrls.AddUrl}`) && (!this.added)) {
-      // this.main = false;
-      // this.added = true;
-      // this.detailed = false;
-    // }
+    if (window.location.pathname == `/${ProjectUrls.FavoritesUrl}`) {
+      this.Favorites.nativeElement.classList.add('active');
+      this.Main.nativeElement.classList.remove('active');
+      this.Recipes.nativeElement.classList.remove('active');
+    }
   }
 
 }

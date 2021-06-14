@@ -14,9 +14,10 @@ export class RecipesComponent implements OnInit {
   public recipes!: RecipeDto[];
   public currentRecipe!: RecipeDto;
 
-  main: boolean = true;
-  detailed: boolean = false;
-  added: boolean = false;
+  main!: boolean;
+  detailed!: boolean;
+  added!: boolean;
+  profile!: boolean;
 
   constructor(private recipeService: RecipeService, private router: Router) { }
 
@@ -30,18 +31,28 @@ export class RecipesComponent implements OnInit {
       this.main = true;
       this.detailed = false;
       this.added = false;
+      this.profile = false;
     }
 
     if ((window.location.pathname == `/${ProjectUrls.RecipeUrl}`) && (!this.detailed)) {
       this.main = false;
       this.detailed = true;
       this.added = false;
+      this.profile = false;
     }
 
     if ((window.location.pathname == `/${ProjectUrls.AddUrl}`) && (!this.added)) {
       this.main = false;
       this.added = true;
       this.detailed = false;
+      this.profile = false;
+    }
+
+    if ((window.location.pathname == `/${ProjectUrls.ProfileUrl}`) && (!this.profile)) {
+      this.main = false;
+      this.added = false;
+      this.detailed = false;
+      this.profile = true;
     }
   }
 

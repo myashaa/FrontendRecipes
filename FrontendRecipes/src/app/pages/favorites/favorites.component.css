@@ -1,0 +1,76 @@
+.favorites-page
+{
+  /* background: url(images/wave1.png) top 90px left 0/1440px 1403px no-repeat, url(images/wave2.png) top 1140px left 0/1440px 1403px no-repeat, #FEFEFB; */
+  min-height: 1200px;
+  width: 100%;
+  padding: 0;
+}
+
+.title
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 83.2%;
+  height: 112px;
+  padding: 60px 8.4% 0;
+}
+
+.title_text
+{
+  width: 811px;
+  height: 62px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 62px;
+  color: #25292D;
+}
+
+.cards
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 83.2%;
+  padding: 0 8.4%;
+}
+
+.card
+{
+  display: block;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.card_link
+{
+  text-decoration: none;
+}
+
+.footer
+{
+  display: block;
+  margin-top: 85px;
+}
+
+.empty
+{
+  display: block;
+  margin: 68px auto 0;
+  width: 556px;
+  height: 30px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  color: #FDB100;
+  opacity: 0.5;
+}

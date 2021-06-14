@@ -9,7 +9,7 @@
   </div>
   <span class="popup-registration_helper">Минимум 8 символов</span>
   <div class="buttons">
-    <button class="popup-registration_button popup-registration_button__registration">
+    <button mat-dialog-close (click)="goToProfilePage()" class="popup-registration_button popup-registration_button__registration">
       Зарегистрироваться
     </button>
     <button mat-dialog-close class="popup-registration_button popup-registration_button__cancel">

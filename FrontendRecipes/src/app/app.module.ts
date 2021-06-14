@@ -19,6 +19,11 @@ import { RecipeComponent } from './directives/recipe/recipe.component';
 import { StepRecipeComponent } from './directives/step-recipe/step-recipe.component';
 import { ProfileComponent } from './directives/profile/profile.component';
 import { FormsModule } from '@angular/forms';
+import { NewRecipeComponent } from './directives/new-recipe/new-recipe.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -34,14 +39,19 @@ import { FormsModule } from '@angular/forms';
     CardRecipeComponent,
     RecipeComponent,
     StepRecipeComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewRecipeComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatChipsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

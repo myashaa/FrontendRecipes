@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PopupAuthorizationComponent } from '../../directives/popup-authorization/popup-authorization.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ProjectUrls } from 'src/app/js/constants/projectUrls';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-popup-registration',
@@ -9,10 +11,14 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PopupRegistrationComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private router: Router) {}
 
   public openPopupAuthorization() {
     this.dialog.open(PopupAuthorizationComponent);
+  }
+
+  public goToProfilePage(): void {
+    this.router.navigate([ProjectUrls.ProfileUrl]);
   }
 
   ngOnInit(): void {

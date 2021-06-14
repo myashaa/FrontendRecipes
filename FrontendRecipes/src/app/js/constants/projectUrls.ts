@@ -3,4 +3,6 @@ export class ProjectUrls {
   public static readonly RecipesUrl: string = "recipes";
   public static readonly RecipeUrl: string = "recipe";
   public static readonly AddUrl: string = "added";
+  public static readonly ProfileUrl: string = "profile";
+  public static readonly FavoritesUrl: string = "favorites";
 }

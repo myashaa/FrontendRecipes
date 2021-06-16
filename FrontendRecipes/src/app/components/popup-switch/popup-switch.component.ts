@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PopupRegistrationComponent } from '../../directives/popup-registration/popup-registration.component';
-import { PopupAuthorizationComponent } from '../../directives/popup-authorization/popup-authorization.component';
+import { PopupRegistrationComponent } from '../../components/popup-registration/popup-registration.component';
+import { PopupAuthorizationComponent } from '../../components/popup-authorization/popup-authorization.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({

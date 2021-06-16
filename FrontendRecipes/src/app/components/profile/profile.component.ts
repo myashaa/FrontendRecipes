@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 import { AuthorDto } from 'src/app/js/dto/author.dto';
 import { RecipeDto } from 'src/app/js/dto/recipe.dto';
 import { AuthorService } from 'src/app/js/services/author.service';
@@ -27,4 +28,8 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  public showRecipe(recipe: RecipeDto): void {
+    const path: string = ProjectUrls.RecipesUrl + "/?id=" + recipe.id;
+    window.location.href = path;
+  }
 }

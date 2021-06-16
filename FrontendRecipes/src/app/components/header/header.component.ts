@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopupSwitchComponent } from '../../directives/popup-switch/popup-switch.component';
+import { PopupSwitchComponent } from '../../components/popup-switch/popup-switch.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ProjectUrls } from '../../js/constants/projectUrls';
@@ -35,7 +35,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.Main);
     if (window.location.pathname == `/${ProjectUrls.MainUrl}`) {
       this.Main.nativeElement.classList.add('active');
       this.Recipes.nativeElement.classList.remove('active');

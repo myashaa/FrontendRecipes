@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 import { RecipeDto } from 'src/app/js/dto/recipe.dto';
 import { RecipeService } from 'src/app/js/services/recipe.service';
@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class RecipesComponent implements OnInit {
 
   public recipes!: RecipeDto[];
-  public currentRecipe!: RecipeDto;
 
   main!: boolean;
   detailed!: boolean;
@@ -27,14 +26,14 @@ export class RecipesComponent implements OnInit {
       this.recipes = recipes;
     });
 
-    if ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (!this.main)) {
+    if ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (window.location.search == "") && (!this.main)) {
       this.main = true;
       this.detailed = false;
       this.added = false;
       this.profile = false;
     }
 
-    if ((window.location.pathname == `/${ProjectUrls.RecipeUrl}`) && (!this.detailed)) {
+    if ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (window.location.search != "") && (!this.detailed)) {
       this.main = false;
       this.detailed = true;
       this.added = false;
@@ -57,8 +56,8 @@ export class RecipesComponent implements OnInit {
   }
 
   public showRecipe(recipe: RecipeDto): void {
-    this.currentRecipe = recipe;
-    this.router.navigate([ProjectUrls.RecipeUrl]);
+    const path: string = "id=" + recipe.id;
+    window.location.search = path;
   }
 
   public addRecipe(): void {
@@ -66,6 +65,7 @@ export class RecipesComponent implements OnInit {
   }
 
   public showRecipes(): void {
-    this.router.navigate([ProjectUrls.RecipesUrl]);
+    window.location.href = ProjectUrls.RecipesUrl;
+    // this.router.navigate([ProjectUrls.RecipesUrl]);
   }
 }

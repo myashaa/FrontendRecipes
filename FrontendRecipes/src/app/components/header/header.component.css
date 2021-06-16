@@ -16,7 +16,7 @@
   -webkit-flex-direction: row;
   display: flex;
   flex-direction: row;
-  width: 43.5%;
+  width: 43.1%;
   justify-content: space-between;
 }
 
@@ -32,6 +32,16 @@
   line-height: 29px;
   color: #FDB100;
   margin-right: 8%;
+}
+
+.buttons
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  width: 66.7%;
+  justify-content: space-between;
 }
 
 .header_button
@@ -84,7 +94,7 @@
 
 .header_button__enter::before
 {
-  content: url("images/login.png");
+  content: url("/assets/images/login.png");
   width: 38px;
   height: 38px;
   position: absolute;

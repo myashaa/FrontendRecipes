@@ -46,11 +46,12 @@
   display: block;
   margin-bottom: 20px;
   cursor: pointer;
+  border-radius: 72px 24px 24px 24px;
 }
 
-.card_link
-{
-  text-decoration: none;
+.card:hover{
+  box-shadow: 0 0 30px rgba(160,82,45,0.5);
+  transition: 300ms;
 }
 
 .footer

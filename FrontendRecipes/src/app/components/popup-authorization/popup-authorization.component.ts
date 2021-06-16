@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopupRegistrationComponent } from '../../directives/popup-registration/popup-registration.component';
+import { PopupRegistrationComponent } from '../../components/popup-registration/popup-registration.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ProjectUrls } from 'src/app/js/constants/projectUrls';

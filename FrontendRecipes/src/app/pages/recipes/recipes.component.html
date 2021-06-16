@@ -24,7 +24,8 @@
       <div class="search_directive"><app-search></app-search></div>
     </div>
     <div class="cards">
-      <a href="http://localhost:4200/recipe#detailed" class="card_link"><app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe></a>
+      <!-- <a href="http://localhost:4200/recipe#detailed" class="card_link"><app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe></a> -->
+      <app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe>
       <button class="cards_button">Загрузить еще</button>
     </div>
   </div>
@@ -34,7 +35,7 @@
   </div>
   <div class="detailed" *ngIf="detailed">
     <a class="back" (click)="showRecipes()">Назад</a>
-    <app-recipe [recipe]="currentRecipe"></app-recipe>
+    <app-recipe></app-recipe>
   </div> 
   <div class="profile" *ngIf="profile">
     <a class="back" (click)="showRecipes()">Назад</a>

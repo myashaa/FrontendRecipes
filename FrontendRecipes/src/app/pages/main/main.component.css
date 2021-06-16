@@ -1,6 +1,6 @@
 .main-page
 {
-  /* background: url(images/wave1.png) top 90px left 0/1440px 1403px no-repeat, url(images/wave2.png) top 1140px left 0/1440px 1403px no-repeat, #FEFEFB; */
+  /* background: url(/assets/images/wave1.png) top 90px left 0/1440px 1403px no-repeat, url(/assets/images/wave2.png) top 1140px left 0/1440px 1403px no-repeat, #FEFEFB; */
   width: 100%;
   padding: 0;
 }
@@ -14,7 +14,7 @@
   justify-content: flex-start;
   width: 100%;
   height: 900px;
-  background: url(images/main.png);
+  background: url(/assets/images/main.png);
   background-position-x: right;
   background-repeat: no-repeat;
 }
@@ -63,7 +63,7 @@
   -webkit-flex-direction: row;
   display: flex;
   flex-direction: row;
-  width: 43%;
+  width: 43.1%;
   justify-content: space-between;
 }
 
@@ -137,7 +137,7 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 83.2%;
-  height: 600px;
+  height: 580px;
   padding: 13px 8.4%;
 }
 
@@ -224,7 +224,7 @@
 
 .card_1::before
 {
-  content: url("images/card1.png");
+  content: url("/assets/images/mini-card1.png");
   background-color: #FFEFCC;
   width: 24px;
   height: 24px;
@@ -237,7 +237,7 @@
 
 .card_2::before
 {
-  content: url("images/card2.png");
+  content: url("/assets/images/mini-card2.png");
   background-color: #FFEFCC;
   width: 24px;
   height: 24px;
@@ -250,7 +250,7 @@
 
 .card_3::before
 {
-  content: url("images/card3.png");
+  content: url("/assets/images/mini-card3.png");
   background-color: #FFEFCC;
   width: 24px;
   height: 24px;
@@ -263,7 +263,7 @@
 
 .card_4::before
 {
-  content: url("images/card4.png");
+  content: url("/assets/images/mini-card4.png");
   background-color: #FFEFCC;
   width: 24px;
   height: 24px;
@@ -282,12 +282,64 @@
   flex-direction: row;
   justify-content: flex-end;
   width: 83.2%;
-  height: 600px;
-  margin: 2px auto;
-  background: url(images/example.png);
+  height: 543px;
+  margin: 15px auto 52px;
+  background: url(/assets/images/card0.png);
   background-position-x: left;
   background-repeat: no-repeat;
   position: relative;
+  border-radius: 72px 0px;
+  border: 7px solid #FFF;
+  cursor: pointer;
+}
+
+.example:hover{
+  box-shadow: 0 0 30px rgba(160,82,45,0.5);
+  transition: 300ms;
+  border-radius: 72px;
+}
+
+.example_buttons
+{
+  position: absolute;
+  top: 2px;
+  left: 81.5%;
+}
+
+.button
+{
+  background: none;
+  border: none;
+  position: relative;
+}
+
+.button_like
+{
+  margin-right: 50px;
+}
+
+.button:hover
+{
+  cursor: pointer;
+}
+
+.button_image
+{
+  position: absolute;
+  top: 0;
+  left: -26px;
+}
+
+.button_text
+{
+  width: 28px;
+  height: 28px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: #25292D;
 }
 
 .example-content
@@ -301,29 +353,9 @@
   padding: 178px 0;
 }
 
-.example::before
-{
-  content: url("images/favorite.png");
-  width: 59px;
-  height: 28px;
-  position: absolute;
-  top: 0;
-  left: 79.3%;
-}
-
-.example::after
-{
-  content: url("images/timer.png");
-  width: 109px;
-  height: 28px;
-  position: absolute;
-  top: 0;
-  left: 86.6%;
-}
-
 .example_header::before
 {
-  content: url("images/yummy-text.png");
+  content: url("/assets/images/yummy-text.png");
   width: 50px;
   height: 50px;
   position: absolute;
@@ -335,7 +367,7 @@
 
 .example_header::after
 {
-  content: url("images/yummy.png");
+  content: url("/assets/images/yummy.png");
   background-color: #FDB100;
   width: 50px;
   height: 50px;

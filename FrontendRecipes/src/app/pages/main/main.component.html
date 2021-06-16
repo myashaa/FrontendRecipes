@@ -53,18 +53,23 @@
       </div>
     </div>
   </div>
-  <div class="example">
+  <div class="example" (click)="showRecipe()">
+    <div class="example_buttons">
+      <button class="button button_like" (click)="switchLikedRecipe()">
+        <img class="button_image" *ngIf="!isLikedRecipe" src="/assets/images/favorite_border2.png" alt="heart photo"/>
+        <img class="button_image" *ngIf="isLikedRecipe" src="/assets/images/favorite.png" alt="heart photo"/>
+        <span class="button_text">{{recipe.likes}}</span>
+      </button>
+      <button class="button button_favorite">
+        <img class="button_image" src="/assets/images/timer_border.png" alt="timer photo"/>
+        <span class="button_text">{{recipe.cookingTimeInMinutes}} минут</span>
+      </button>
+    </div>  
     <div class="example-content">
-      <span class="example_header">
-        Тыквенный супчик на кокосовом молоке
-      </span>
-      <span class="example_text">
-        Если у вас осталась тыква, и вы не знаете что с ней сделать, 
-        то это решение для вас! Ароматный, согревающий суп-пюре на 
-        кокосовом молоке. Можно даже в Пост!
-      </span>
+      <span class="example_header">{{recipe.name}}</span>
+      <span class="example_text">{{recipe.description}}</span>
     </div>
-    <span class="example_tag">@glazest</span>
+    <span class="example_tag">{{recipe.author}}</span>
   </div>
   <div class="search">
     <span class="search_header">Поиск рецептов</span>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 import { RecipeDto } from 'src/app/js/dto/recipe.dto';
 import { RecipeService } from 'src/app/js/services/recipe.service';
@@ -22,7 +22,7 @@ export class RecipesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.recipeService.getRecipes().then((recipes: RecipeDto[]) => {
+    this.recipeService.getFourRecipes().then((recipes: RecipeDto[]) => {
       this.recipes = recipes;
     });
 
@@ -66,6 +66,12 @@ export class RecipesComponent implements OnInit {
 
   public showRecipes(): void {
     window.location.href = ProjectUrls.RecipesUrl;
-    // this.router.navigate([ProjectUrls.RecipesUrl]);
+  }
+
+  public showMoreRecipes(): void {
+    this.recipeService.getFourRecipes().then((recipes: RecipeDto[]) => {
+      let container = this.recipes.concat(recipes);
+      this.recipes = container;
+    });
   }
 }

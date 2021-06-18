@@ -110,3 +110,61 @@
   color: #FDB100;
   margin-right: 0.4%;
 }
+
+.header_user
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 19.3%;
+}
+
+.header_button__name::before
+{
+  content: url("/assets/images/login.png");
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  top: -8px;
+  left: -47px;
+}
+
+.header_button__name::after
+{
+  content: "|";
+  font-weight: 600;
+  color: #FDB100;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.header_button__name
+{
+  position: relative;
+  min-width: 82%;
+  font-weight: 600;
+  color: #FDB100;
+  text-align: left;
+  white-space: nowrap;
+  padding-right: 28px;
+}
+
+.header_button__exit
+{
+  width: 42px;
+  position: relative;
+}
+
+.header_button__exit::before
+{
+  content: url("/assets/images/exit.png");
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  position: absolute;
+  top: -5px;
+  right: -7px;
+}

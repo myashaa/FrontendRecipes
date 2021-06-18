@@ -321,7 +321,7 @@ export class RecipeService {
     });
   }
 
-  public getRecipe(): Promise<RecipeDto> {
+  public getRecipe(id: number): Promise<RecipeDto> {
     return new Promise<RecipeDto>((resolve, reject) => {
       resolve({
         id: 0,
@@ -388,7 +388,7 @@ export class RecipeService {
     });
   }
 
-  public getRecipes(): Promise<RecipeDto[]> {
+  public getFourRecipes(): Promise<RecipeDto[]> {
     return new Promise<RecipeDto[]>((resolve, reject) => {
       resolve(this.recipes);
     });

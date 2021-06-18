@@ -14,10 +14,9 @@ import { IngredientDto } from 'src/app/js/dto/ingredient.dto';
 })
 export class NewRecipeComponent implements OnInit {
 
-  public recipe: RecipeDto;
+  public recipe!: RecipeDto;
 
   constructor(private recipeService: RecipeService, private router: Router) {
-    this.recipe = this.getEmptyRecipe();
   }
 
   public addTitle(): void {
@@ -108,5 +107,15 @@ export class NewRecipeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if ((window.location.pathname == `/${ProjectUrls.AddUrl}`) && (window.location.search == "")) {
+      this.recipe = this.getEmptyRecipe();
+    }
+
+    if ((window.location.pathname == `/${ProjectUrls.AddUrl}`) && (window.location.search != "")) {
+      let id = Number(window.location.search.split("=")[1]);
+      this.recipeService.getRecipe(id).then((recipe: RecipeDto) => {
+        this.recipe = recipe;
+      });
+    }
   }
 }

@@ -96,7 +96,7 @@
   background: #FDB100;
   color: #FFF;
   border: none;
-  padding-left: 3.5%;
+  padding-left: 8%;
 }
 
 .card
@@ -190,7 +190,7 @@
 .steps_footer
 {
   display: block;
-  margin: 20px auto 103px;
+  margin: 30px auto 103px;
   width: 286px;
   height: 30px;
   font-family: Montserrat;

@@ -4,9 +4,9 @@
   -webkit-flex-direction: row;
   display: flex;
   flex-direction: row;
-  width: 83.2%;
+  width: 83.3%;
   height: 39px;
-  padding: 37px 8.4% 37px;
+  padding: 37px 8.3% 37px 8.4%;
   justify-content: space-between;
   background-color: #FBF9F4;
 }

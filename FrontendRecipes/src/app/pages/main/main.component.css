@@ -1,6 +1,7 @@
 .main-page
 {
-  /* background: url(/assets/images/wave1.png) top 90px left 0/1440px 1403px no-repeat, url(/assets/images/wave2.png) top 1140px left 0/1440px 1403px no-repeat, #FEFEFB; */
+  background: url(/assets/images/bg.png) top 0 left 0/1440px 2806px repeat-y, #FEFEFB;
+  background-size: 100%;
   width: 100%;
   padding: 0;
 }
@@ -85,7 +86,7 @@
   background: #FDB100;
   color: #FFF;
   border: none;
-  padding-left: 8%;
+  padding-left: 8.8%;
   position: relative;
 }
 
@@ -190,7 +191,7 @@
 
 .card:hover
 {
-  box-shadow: 0 0 30px rgba(160,82,45,0.5);
+  box-shadow: 0 0 30px rgba(210, 180, 140);
   transition: 300ms;
 }
 
@@ -289,14 +290,16 @@
   background-repeat: no-repeat;
   position: relative;
   border-radius: 72px 0px;
-  border: 7px solid #FFF;
+  border: 7px solid rgb(255, 255, 255, 0.1);
   cursor: pointer;
 }
 
 .example:hover{
-  box-shadow: 0 0 30px rgba(160,82,45,0.5);
+  box-shadow: 0 0 30px rgba(210, 180, 140);
   transition: 300ms;
   border-radius: 72px;
+  border: 7px solid #FFF;
+  background-color: #FFF;
 }
 
 .example_buttons
@@ -410,7 +413,7 @@
 .example_tag
 {
   width: 108px;
-  height: 32px;
+  height: 30px;
   position: absolute;
   top: 475px;
   left: 0;
@@ -422,6 +425,8 @@
   font-size: 16px;
   line-height: 28px;
   color: #FDB100;
+  padding-top: 2px;
+  border-radius: 0 5px 5px 0;
 }
 
 .search
@@ -451,11 +456,11 @@
 
 .search_text
 {
-  margin: 16px auto 64px;
+  margin: 16px auto 62px;
   width: 700px;
   height: 32px;
   font-family: 'Mulish', sans-serif;
-  letter-spacing: 0.7px;
+  letter-spacing: 0.6px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

@@ -3,7 +3,7 @@
     <span class="title_text">{{recipe.name}}</span>
     <div class="buttons">
       <button class="title_button title_button__delete"></button>
-      <button class="title_button title_button__edit">Редактировать</button>
+      <button class="title_button title_button__edit" (click)="editRecipe(recipe)">Редактировать</button>
     </div>
   </div>
   <app-card-recipe class="card" [content]="recipe"></app-card-recipe>

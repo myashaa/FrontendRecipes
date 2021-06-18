@@ -3,15 +3,15 @@
     <span class="title_text">Мой профиль</span>
   </div>
   <div class="data">
-    <button class="edit">
+    <button class="edit" (click)="editProfile()">
       <img class="card_image" src="/assets/images/edit2.png" alt="edit photo"/>
     </button>
     <div class="data_inputs">
-      <input class="data_input data_input__small" placeholder="Имя" type="text" name="name" [(ngModel)]="author.name" autocomplete="off">
-      <input class="data_input data_input__small" placeholder="Логин" type="text" name="login" [(ngModel)]="author.login" autocomplete="off">
-      <input class="data_input data_input__small" placeholder="Пароль" type="password" name="password" [(ngModel)]="author.password" autocomplete="off">
+      <input class="data_input data_input__small" placeholder="Имя" type="text" name="name" [(ngModel)]="author.name" autocomplete="off" disabled #name>
+      <input class="data_input data_input__small" placeholder="Логин" type="text" name="login" [(ngModel)]="author.login" autocomplete="off" disabled #login>
+      <input class="data_input data_input__small" placeholder="Пароль" type="password" name="password" [(ngModel)]="author.password" autocomplete="off" disabled #password>
     </div>
-    <textarea class="data_input data_input__big" placeholder="Напишите немного о себе" type="text" name="description" [(ngModel)]="author.description"></textarea>
+    <textarea class="data_input data_input__big" placeholder="Напишите немного о себе" type="text" name="description" [(ngModel)]="author.description" disabled #description></textarea>
   </div>
   <div class="mini-cards">
     <div class="mini-card">  

@@ -7,5 +7,9 @@
       <button (click)="goToFavoritesPage()" class="header_button header_button__favorites" #favorites>Избранное</button>
     </div>
   </div>
-  <button (click)="openPopupSwitch()" class="header_button header_button__enter">Войти</button>
+  <!-- <button (click)="openPopupSwitch()" class="header_button header_button__enter">Войти</button> -->
+  <div class="header_user">
+    <button (click)="openPopupSwitch()" class="header_button header_button__name">Привет, Татьяна</button>
+    <button (click)="openPopupSwitch()" class="header_button header_button__exit"></button>
+  </div>
 </div>

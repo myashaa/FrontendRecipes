@@ -1,7 +1,7 @@
 .recipes-page
 {
-  /* background: url(/assets/images/wave1.png) top 90px left 0/1440px 1403px no-repeat, url(/assets/images/wave2.png) top 1140px left 0/1440px 1403px no-repeat, #FEFEFB; */
-  /* background-size: 100%; */
+  background: url(/assets/images/bg.png) top 0 left 0/1440px 2806px repeat-y, #FEFEFB;
+  background-size: 100%;
   width: 100%;
   padding: 0;
 }
@@ -95,7 +95,7 @@
 
 .mini-card:hover
 {
-  box-shadow: 0 0 30px rgba(160,82,45,0.5);
+  box-shadow: 0 0 30px rgba(210, 180, 140);
   transition: 300ms;
 }
 
@@ -216,7 +216,7 @@
 }
 
 .card:hover{
-  box-shadow: 0 0 30px rgba(160,82,45,0.5);
+  box-shadow: 0 0 30px rgba(210, 180, 140);
   transition: 300ms;
 }
 
@@ -227,7 +227,7 @@
 
 .cards_button
 {
-  margin: 65px auto 0;
+  margin: 25px auto 0;
   height: 60px;
   border-radius: 16px;
   cursor: pointer;

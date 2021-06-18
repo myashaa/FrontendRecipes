@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 import { RecipeDto } from 'src/app/js/dto/recipe.dto';
 
 @Component({
@@ -12,11 +13,13 @@ export class CardRecipeComponent implements OnInit {
 
   isFavoriteRecipe!: boolean;
   isLikedRecipe!: boolean;
+  isDetailedRecipe!: boolean;
 
   constructor() { }
 
 
-  public switchFavoriteRecipe() {
+  public switchFavoriteRecipe(event: any) {
+    event.stopPropagation();
     this.isFavoriteRecipe = !this.isFavoriteRecipe;
     (this.content.isFavorite)
       ? this.content.isFavorite = false
@@ -26,7 +29,8 @@ export class CardRecipeComponent implements OnInit {
       : this.content.favorites--;
   }
 
-  public switchLikedRecipe() {
+  public switchLikedRecipe(event: any) {
+    event.stopPropagation();
     this.isLikedRecipe = !this.isLikedRecipe;
     (this.content.isLike)
       ? this.content.isLike = false
@@ -43,6 +47,16 @@ export class CardRecipeComponent implements OnInit {
     (this.content.isLike)
       ? this.isLikedRecipe = true
       : this.isLikedRecipe = false;
+    
+    ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (window.location.search.split("=")[0] == "?id") && (!this.isDetailedRecipe))
+      ? this.isDetailedRecipe = true
+      : this.isDetailedRecipe = false;
+  }
+  
+  public searchRecipes(searchText: string, event: any): void {
+    event.stopPropagation();
+    const path: string = ProjectUrls.RecipesUrl + "/?search=" + searchText;
+    window.location.href = path;
   }
 
 }

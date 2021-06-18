@@ -324,7 +324,7 @@ export class RecipeService {
   public getRecipe(id: number): Promise<RecipeDto> {
     return new Promise<RecipeDto>((resolve, reject) => {
       resolve({
-        id: 0,
+        id: 1,
         imageUrl: "/assets/images/card0.png",
         author: "@glazest",
         authorId: 0,
@@ -388,6 +388,12 @@ export class RecipeService {
     });
   }
 
+  public searchFourRecipes(text: string): Promise<RecipeDto[]> {
+    return new Promise<RecipeDto[]>((resolve, reject) => {
+      resolve(this.recipes);
+    });
+  }
+
   public getFourRecipes(): Promise<RecipeDto[]> {
     return new Promise<RecipeDto[]>((resolve, reject) => {
       resolve(this.recipes);
@@ -397,6 +403,14 @@ export class RecipeService {
   public addRecipe(recipe: RecipeDto): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       this.recipes.push(recipe);
+      resolve();
+    })
+  }
+
+  public deleteRecipe(id: number): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.recipes.splice(id, 1);
+      console.log(this.recipes);
       resolve();
     })
   }

@@ -6,16 +6,16 @@
       <button class="title_button" (click)="addRecipe()">Добавить рецепт</button>
     </div>
     <div class="mini-cards">
-      <div class="mini-card mini-card_1">
+      <div class="mini-card mini-card_1" (click)="searchRecipes('Простые блюда', $event)">
         <span class="mini-card_header">Простые блюда</span>
       </div>
-      <div class="mini-card mini-card_2">
+      <div class="mini-card mini-card_2" (click)="searchRecipes('Детское', $event)">
         <span class="mini-card_header">Детское</span>
       </div>
-      <div class="mini-card mini-card_3">
+      <div class="mini-card mini-card_3" (click)="searchRecipes('От шеф-поваров', $event)">
         <span class="mini-card_header">От шеф-поваров</span>
       </div>
-      <div class="mini-card mini-card_4">
+      <div class="mini-card mini-card_4" (click)="searchRecipes('На Праздник', $event)">
         <span class="mini-card_header">На праздник</span>
       </div>
     </div>

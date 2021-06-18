@@ -57,6 +57,7 @@
   justify-content: space-between;
   width: 100%;
   height: 50px;
+  margin-bottom: 37px;
 }
 
 .tags
@@ -141,7 +142,6 @@
   line-height: 30px;
   text-transform: capitalize;
   color: #25292D;
-  margin-top: 37px;
 }
 
 .card_text

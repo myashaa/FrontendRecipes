@@ -27,25 +27,25 @@
       Это позволит быстро находить любые категории.
     </span>
     <div class="cards">
-      <div class="card card_1">
+      <div class="card card_1" (click)="searchRecipes('Простые блюда', $event)">
         <span class="card_header">Простые блюда</span>
         <span class="card_text">
           Время приготовления таких блюд не более 1 часа
         </span>
       </div>
-      <div class="card card_2">
+      <div class="card card_2" (click)="searchRecipes('Детское', $event)">
         <span class="card_header">Детское</span>
         <span class="card_text">
           Самые полезные блюда которые можно детям любого возраста
         </span>
       </div>
-      <div class="card card_3">
+      <div class="card card_3" (click)="searchRecipes('От шеф-поваров', $event)">
         <span class="card_header">От шеф-поваров</span>
         <span class="card_text">
           Требуют умения, времени и терпения, зато как в ресторане
         </span>
       </div>
-      <div class="card card_4">
+      <div class="card card_4" (click)="searchRecipes('На Праздник', $event)">
         <span class="card_header">На Праздник</span>
         <span class="card_text">
           Чем удивить гостей, чтобы все были сыты за праздничным столом
@@ -55,7 +55,7 @@
   </div>
   <div class="example" (click)="showRecipe()">
     <div class="example_buttons">
-      <button class="button button_like" (click)="switchLikedRecipe()">
+      <button class="button button_like" (click)="switchLikedRecipe($event)">
         <img class="button_image" *ngIf="!isLikedRecipe" src="/assets/images/favorite_border2.png" alt="heart photo"/>
         <img class="button_image" *ngIf="isLikedRecipe" src="/assets/images/favorite.png" alt="heart photo"/>
         <span class="button_text">{{recipe.likes}}</span>
@@ -69,7 +69,7 @@
       <span class="example_header">{{recipe.name}}</span>
       <span class="example_text">{{recipe.description}}</span>
     </div>
-    <span class="example_tag">{{recipe.author}}</span>
+    <span class="example_tag" (click)="searchRecipes(recipe.author, $event)">{{recipe.author}}</span>
   </div>
   <div class="search">
     <span class="search_header">Поиск рецептов</span>

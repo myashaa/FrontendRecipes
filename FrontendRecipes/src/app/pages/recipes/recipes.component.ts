@@ -22,18 +22,28 @@ export class RecipesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.recipeService.getFourRecipes().then((recipes: RecipeDto[]) => {
-      this.recipes = recipes;
-    });
-
     if ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (window.location.search == "") && (!this.main)) {
       this.main = true;
       this.detailed = false;
       this.added = false;
       this.profile = false;
+      this.recipeService.getFourRecipes().then((recipes: RecipeDto[]) => {
+        this.recipes = recipes;
+      });
     }
 
-    if ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (window.location.search != "") && (!this.detailed)) {
+    if ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (window.location.search.split("=")[0] == "?search") && (!this.detailed)) {
+      this.main = true;
+      this.detailed = false;
+      this.added = false;
+      this.profile = false;
+      let text = window.location.search.split("=")[1];
+      this.recipeService.searchFourRecipes(text).then((recipes: RecipeDto[]) => {
+        this.recipes = recipes;
+      });      
+    }
+
+    if ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (window.location.search.split("=")[0] == "?id") && (!this.detailed)) {
       this.main = false;
       this.detailed = true;
       this.added = false;
@@ -69,9 +79,26 @@ export class RecipesComponent implements OnInit {
   }
 
   public showMoreRecipes(): void {
-    this.recipeService.getFourRecipes().then((recipes: RecipeDto[]) => {
-      let container = this.recipes.concat(recipes);
-      this.recipes = container;
-    });
+    if ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (window.location.search == "") && (!this.main)) {
+      this.recipeService.getFourRecipes().then((recipes: RecipeDto[]) => {
+        let container = this.recipes.concat(recipes);
+        this.recipes = container;
+      });
+    }
+
+    if ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (window.location.search.split("=")[0] == "?search") && (!this.detailed)) {
+      let text = window.location.search.split("=")[1];
+      text = text.replace(/%20/g, " ");
+      this.recipeService.searchFourRecipes(text).then((recipes: RecipeDto[]) => {
+        let container = this.recipes.concat(recipes);
+        this.recipes = container;
+      });
+    }
+  }
+
+  public searchRecipes(searchText: string, event: any): void {
+    event.stopPropagation();
+    const path: string = ProjectUrls.RecipesUrl + "/?search=" + searchText;
+    window.location.href = path;
   }
 }

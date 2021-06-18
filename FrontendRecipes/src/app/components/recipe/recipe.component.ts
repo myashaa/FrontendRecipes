@@ -26,4 +26,10 @@ export class RecipeComponent implements OnInit {
     const path: string = ProjectUrls.AddUrl + "/?id=" + this.recipe.id;
     window.location.href = path;
   }
+
+  public deleteRecipe(id: number): void {
+    console.log(id);
+    this.recipeService.deleteRecipe(id);
+    window.location.href = ProjectUrls.RecipesUrl;
+  }
 }

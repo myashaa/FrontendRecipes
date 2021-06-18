@@ -26,7 +26,8 @@ export class MainComponent implements OnInit {
     this.router.navigate([ProjectUrls.AddUrl]);
   }
 
-  public switchLikedRecipe() {
+  public switchLikedRecipe(event: any) {
+    event.stopPropagation();
     this.isLikedRecipe = !this.isLikedRecipe;
     (this.recipe.isLike)
       ? this.recipe.isLike = false
@@ -48,6 +49,12 @@ export class MainComponent implements OnInit {
 
   public showRecipe(): void {
     const path: string = ProjectUrls.RecipesUrl + "/?id=" + this.recipe.id;
+    window.location.href = path;
+  }
+
+  public searchRecipes(searchText: string, event: any): void {
+    event.stopPropagation();
+    const path: string = ProjectUrls.RecipesUrl + "/?search=" + searchText;
     window.location.href = path;
   }
 

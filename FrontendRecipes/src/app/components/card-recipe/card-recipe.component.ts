@@ -48,15 +48,13 @@ export class CardRecipeComponent implements OnInit {
       ? this.isLikedRecipe = true
       : this.isLikedRecipe = false;
     
-    ((window.location.pathname == `/${ProjectUrls.RecipesUrl}`) && (window.location.search.split("=")[0] == "?id") && (!this.isDetailedRecipe))
+    ((window.location.pathname.split("/")[1] == ProjectUrls.RecipeUrl) && (!this.isDetailedRecipe))
       ? this.isDetailedRecipe = true
       : this.isDetailedRecipe = false;
   }
   
-  public searchRecipes(searchText: string, event: any): void {
+  public searchRecipes(event: any): void {
     event.stopPropagation();
-    const path: string = ProjectUrls.RecipesUrl + "/?search=" + searchText;
-    window.location.href = path;
   }
 
 }

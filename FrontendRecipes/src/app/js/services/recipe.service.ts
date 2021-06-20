@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { RecipeDto } from '../dto/recipe.dto';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +10,11 @@ import { RecipeDto } from '../dto/recipe.dto';
 export class RecipeService {
 
   private recipes: RecipeDto[];
-  constructor() {
+  constructor(private http: HttpClient) {
     this.recipes = [{
       id: 1,
       imageUrl: "/assets/images/card1.png",
-      author: "@glazest",
+      author: "glazest",
       authorId: 1,
       tags: ["десерты", "клубника", "сливки"],
       favorites: 10,
@@ -72,7 +75,7 @@ export class RecipeService {
       {
         id: 2,
         imageUrl: "/assets/images/card2.png",
-        author: "@horilka",
+        author: "horilka",
         authorId: 2,
         tags: ["вторые блюда", "мясо", "соевый соус"],
         favorites: 4,
@@ -133,7 +136,7 @@ export class RecipeService {
       {
         id: 3,
         imageUrl: "/assets/images/card3.png",
-        author: "@turum-pum-pum",
+        author: "turum-pum-pum",
         authorId: 3,
         tags: ["десерты", "завтрак", "блины"],
         favorites: 25,
@@ -194,7 +197,7 @@ export class RecipeService {
       {
         id: 4,
         imageUrl: "/assets/images/card4.png",
-        author: "@sweet-girl",
+        author: "sweet-girl",
         authorId: 4,
         tags: ["десерты", "вишня", "мороженное"],
         favorites: 4,
@@ -259,7 +262,7 @@ export class RecipeService {
       resolve({
         id: 0,
         imageUrl: "/assets/images/card0.png",
-        author: "@glazest",
+        author: "glazest",
         authorId: 0,
         tags: ["первые блюда", "суп", "тыква"],
         favorites: 96,
@@ -326,7 +329,7 @@ export class RecipeService {
       resolve({
         id: 1,
         imageUrl: "/assets/images/card0.png",
-        author: "@glazest",
+        author: "glazest",
         authorId: 0,
         tags: ["первые блюда", "суп", "тыква"],
         favorites: 96,

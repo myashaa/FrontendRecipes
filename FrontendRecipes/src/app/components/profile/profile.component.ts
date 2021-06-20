@@ -35,11 +35,6 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  public showRecipe(recipe: RecipeDto): void {
-    const path: string = ProjectUrls.RecipesUrl + "/?id=" + recipe.id;
-    window.location.href = path;
-  }
-
   public editProfile(): void {
     if (!this.flag) {
       this.Name.nativeElement.removeAttribute("disabled");
@@ -52,7 +47,7 @@ export class ProfileComponent implements OnInit {
       this.Password.nativeElement.setAttribute("disabled", "");
       this.Description.nativeElement.setAttribute("disabled", "");
 
-      this.authorService.updareAuthor(this.author);
+      this.authorService.updateAuthor(this.author);
     }
     this.flag = !this.flag;
   }

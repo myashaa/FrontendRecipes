@@ -9,7 +9,10 @@ const routes: Routes = [
   { path: '', redirectTo: `/${ProjectUrls.MainUrl}`, pathMatch: 'full' },
   { path: ProjectUrls.MainUrl, component: MainComponent },
   { path: ProjectUrls.RecipesUrl, component: RecipesComponent },
+  { path: `${ProjectUrls.RecipesUrl}${'/:searchText'}`, component: RecipesComponent },
+  { path: `${ProjectUrls.RecipeUrl}${'/:id'}`, component: RecipesComponent },
   { path: ProjectUrls.AddUrl, component: RecipesComponent },
+  { path: `${ProjectUrls.AddUrl}${'/:id'}`, component: RecipesComponent },
   { path: ProjectUrls.ProfileUrl, component: RecipesComponent },
   { path: ProjectUrls.FavoritesUrl, component: FavoritesComponent }
 ];

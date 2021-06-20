@@ -13,6 +13,30 @@
   box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
 }
 
+.card:hover .tag 
+{
+  box-shadow: 0 0 5px 1px rgba(255, 165, 0, 0.45);
+  transition: 300ms;
+}
+
+.card:hover .card_header 
+{
+  text-decoration: underline;
+  transition: 300ms;
+}
+
+.card:hover .card_author 
+{
+  box-shadow: 0 0 5px 3px rgba(255, 165, 0, 0.45);
+  transition: 300ms;
+}
+
+.card:hover .button
+{
+  box-shadow: 0 0 7px rgba(255, 165, 0, 0.3);
+  transition: 300ms;
+}
+
 .card_image
 {
   width: 430px;
@@ -34,6 +58,14 @@
   line-height: 28px;
   color: #FDB100;
   border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.card_author:hover
+{
+  background: rgba(255,248,220);
+  color: #F29E1F;
+  transition: 700ms;
 }
 
 .card_content
@@ -82,10 +114,17 @@
   font-size: 14px;
   color: #F29E1F;
   padding: 0 7%;
-  margin-right: 3%;
+  margin-right: 7px;
   cursor: pointer;
   white-space: nowrap;
   text-transform: lowercase;
+}
+
+.tag:hover
+{
+  color: rgba(255,248,220);
+  background: #FDB100;
+  transition: 700ms;
 }
 
 .buttons
@@ -133,7 +172,6 @@
 
 .card_header
 {
-  width: 693px;
   height: 30px;
   font-family: Montserrat;
   font-style: normal;
@@ -142,6 +180,13 @@
   line-height: 30px;
   text-transform: capitalize;
   color: #25292D;
+  cursor: pointer;
+}
+
+.card_header:hover
+{
+  color: rgb(253, 137, 0, 0.7);
+  transition: 700ms;
 }
 
 .card_text

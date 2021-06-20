@@ -18,7 +18,20 @@ export class AuthorService {
       amountOfLikes: 15,
       amountOfFavorites: 15
     }
-   }
+  }
+  
+  public checkAuthor(author: AuthorDto): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      resolve(true);
+    })
+  }
+
+  public createAuthor(author: AuthorDto): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.author = author;
+      resolve();
+    })
+  }
 
   public getAuthor(): Promise<AuthorDto> {
     return new Promise<AuthorDto>((resolve, reject) => {
@@ -26,7 +39,7 @@ export class AuthorService {
     });
   }
 
-  public updareAuthor(author: AuthorDto): Promise<void> {
+  public updateAuthor(author: AuthorDto): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       this.author = author;
       resolve();

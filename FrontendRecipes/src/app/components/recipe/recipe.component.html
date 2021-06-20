@@ -3,7 +3,7 @@
     <span class="title_text">{{recipe.name}}</span>
     <div class="buttons">
       <button class="title_button title_button__delete" (click)="deleteRecipe(recipe.id)"></button>
-      <button class="title_button title_button__edit" (click)="editRecipe(recipe)">Редактировать</button>
+      <button class="title_button title_button__edit" [routerLink] = "['/added', recipe.id]">Редактировать</button>
     </div>
   </div>
   <app-card-recipe class="card" [content]="recipe"></app-card-recipe>

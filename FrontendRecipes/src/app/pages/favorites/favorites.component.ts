@@ -24,9 +24,4 @@ export class FavoritesComponent implements OnInit {
       }
     });
   }
-
-  public showRecipe(recipe: RecipeDto): void {
-    const path: string = ProjectUrls.RecipesUrl + "/?id=" + recipe.id;
-    window.location.href = path;
-  }
 }

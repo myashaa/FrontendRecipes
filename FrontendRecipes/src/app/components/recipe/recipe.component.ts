@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 import { RecipeDto } from 'src/app/js/dto/recipe.dto';
 import { RecipeService } from 'src/app/js/services/recipe.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipe',
@@ -13,23 +14,17 @@ export class RecipeComponent implements OnInit {
 
   public recipe!: RecipeDto;
 
-  constructor(private recipeService: RecipeService, private router: Router) { }
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let id = Number(window.location.search.split("=")[1]);
+    let id = this.route.snapshot.params['id'];
     this.recipeService.getRecipe(id).then((recipe: RecipeDto) => {
       this.recipe = recipe;
     });
   }
 
-  public editRecipe(recipe: RecipeDto): void {
-    const path: string = ProjectUrls.AddUrl + "/?id=" + this.recipe.id;
-    window.location.href = path;
-  }
-
   public deleteRecipe(id: number): void {
-    console.log(id);
     this.recipeService.deleteRecipe(id);
-    window.location.href = ProjectUrls.RecipesUrl;
+    this.router.navigate([ProjectUrls.RecipesUrl]);
   }
 }

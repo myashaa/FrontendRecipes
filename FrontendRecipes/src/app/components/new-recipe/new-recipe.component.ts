@@ -6,6 +6,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
 import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 import { IngredientDto } from 'src/app/js/dto/ingredient.dto';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-recipe',
@@ -16,7 +17,7 @@ export class NewRecipeComponent implements OnInit {
 
   public recipe!: RecipeDto;
 
-  constructor(private recipeService: RecipeService, private router: Router) {
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) {
   }
 
   public addTitle(): void {
@@ -74,11 +75,9 @@ export class NewRecipeComponent implements OnInit {
 
   addTag(event: MatChipInputEvent): void {
     const tag: string = (event.value || '').trim();
-    // Add our fruit
     if (tag) {
       this.recipe.tags.push(tag);
     }
-    // Clear the input value
     event.input.value = '';
   }
 
@@ -91,11 +90,9 @@ export class NewRecipeComponent implements OnInit {
 
   addIngredient(event: MatChipInputEvent, ingredient: IngredientDto): void {
     const item: string = (event.value || '').trim();
-    // Add our fruit
     if (item) {
       ingredient.items.push(item);
     }
-    // Clear the input value
     event.input.value = '';
   }
 
@@ -107,12 +104,12 @@ export class NewRecipeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if ((window.location.pathname == `/${ProjectUrls.AddUrl}`) && (window.location.search == "")) {
+    if ((window.location.pathname.split("/")[1] == ProjectUrls.AddUrl) && (window.location.pathname.split("/")[2] == null)) {
       this.recipe = this.getEmptyRecipe();
     }
 
-    if ((window.location.pathname == `/${ProjectUrls.AddUrl}`) && (window.location.search != "")) {
-      let id = Number(window.location.search.split("=")[1]);
+    if ((window.location.pathname.split("/")[1] == ProjectUrls.AddUrl) && (window.location.pathname.split("/")[2] != null)) {
+      let id = this.route.snapshot.params['id'];
       this.recipeService.getRecipe(id).then((recipe: RecipeDto) => {
         this.recipe = recipe;
       });

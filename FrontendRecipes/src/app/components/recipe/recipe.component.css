@@ -77,6 +77,11 @@
   left: 13%;
 }
 
+.title_button__edit:hover:before
+{
+  content: url("/assets/images/edit2.png");
+}
+
 .title_button__edit:hover
 {
   border: 1px solid #FDB100;

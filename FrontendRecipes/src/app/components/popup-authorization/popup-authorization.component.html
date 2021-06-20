@@ -1,8 +1,8 @@
 <div class="popup-authorization">
   <button mat-dialog-close class="exit"><span class="exit-text">+</span></button>
   <span class="popup-authorization_header">Войти</span>
-  <input class="popup-authorization_input" placeholder="Логин" type="text" name="login" autocomplete="off">
-  <input class="popup-authorization_input" placeholder="Пароль" type="password" name="password" autocomplete="off">
+  <input class="popup-authorization_input" placeholder="Логин" type="text" name="login" autocomplete="off" [(ngModel)]="author.login">
+  <input class="popup-authorization_input" placeholder="Пароль" type="password" name="password" autocomplete="off" [(ngModel)]="author.password">
   <div class="buttons">
     <button mat-dialog-close (click)="goToProfilePage()" class="popup-authorization_button popup-authorization_button__authorization">
       Войти

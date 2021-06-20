@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { ProjectUrls } from '../../js/constants/projectUrls';
 import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
+import { AuthorService } from 'src/app/js/services/author.service';
+import { AuthorDto } from 'src/app/js/dto/author.dto';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +18,10 @@ export class HeaderComponent implements OnInit {
   @ViewChild('recipes', { static: true }) Recipes!: ElementRef;
   @ViewChild('favorites', { static: true }) Favorites!: ElementRef;
 
-  constructor(public dialog: MatDialog, private router: Router) { }
+  public author!: AuthorDto;
+  public isAuthorized: boolean = true;
+
+  constructor(public dialog: MatDialog, private router: Router, private authorService: AuthorService) { }
   
   public openPopupSwitch() {
     this.dialog.open(PopupSwitchComponent);
@@ -26,12 +31,16 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([ProjectUrls.MainUrl]);
   }
 
-  public goToRecipePage(): void {
+  public goToRecipesPage(): void {
     this.router.navigate([ProjectUrls.RecipesUrl]);
   }
 
   public goToFavoritesPage(): void {
     this.router.navigate([ProjectUrls.FavoritesUrl]);
+  }
+
+  public goToProfilePage(): void {
+    this.router.navigate([ProjectUrls.ProfileUrl]);
   }
 
   ngOnInit(): void {
@@ -52,6 +61,10 @@ export class HeaderComponent implements OnInit {
       this.Main.nativeElement.classList.remove('active');
       this.Recipes.nativeElement.classList.remove('active');
     }
+
+    this.authorService.getAuthor().then((author: AuthorDto) => {
+      this.author = author;
+    });
   }
 
 }

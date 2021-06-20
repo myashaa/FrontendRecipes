@@ -29,6 +29,6 @@
   </div>
   <div class="recipes">
     <span class="recipes_header">Мои рецепты</span>
-    <app-card-recipe class="recipe" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe>
+    <app-card-recipe class="recipe" *ngFor="let recipe of recipes" [content]="recipe" [routerLink] = "['/recipe', recipe.id]"></app-card-recipe>
   </div>
 </div>

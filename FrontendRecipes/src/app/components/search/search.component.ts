@@ -17,9 +17,4 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public searchRecipes(searchText: string): void {
-    const path: string = ProjectUrls.RecipesUrl + "/?search=" + searchText;
-    window.location.href = path;
-  }
-
 }

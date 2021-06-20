@@ -291,7 +291,6 @@
   position: relative;
   border-radius: 72px 0px;
   border: 7px solid rgb(255, 255, 255, 0.1);
-  cursor: pointer;
 }
 
 .example:hover{
@@ -300,6 +299,19 @@
   border-radius: 72px;
   border: 7px solid #FFF;
   background-color: #FFF;
+  overflow: hidden;
+}
+
+.example:hover .example_header 
+{
+  text-decoration: underline;
+  transition: 300ms;
+}
+
+.example:hover .example_tag 
+{
+  box-shadow: 0 0 5px 3px rgba(255, 165, 0, 0.45);
+  transition: 300ms;
 }
 
 .example_buttons
@@ -319,10 +331,6 @@
 .button_like
 {
   margin-right: 50px;
-}
-
-.button:hover
-{
   cursor: pointer;
 }
 
@@ -384,7 +392,6 @@
 .example_header
 {
   position: relative;
-  width: 512px;
   height: 120px;
   font-family: Montserrat;
   font-style: normal;
@@ -393,6 +400,13 @@
   line-height: 60px;
   text-transform: capitalize;
   color: #25292D;
+  cursor: pointer;
+}
+
+.example_header:hover
+{
+  color: rgb(253, 137, 0, 0.7);
+  transition: 700ms;
 }
 
 .example_text
@@ -427,6 +441,14 @@
   color: #FDB100;
   padding-top: 2px;
   border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.example_tag:hover
+{
+  background: rgba(255,248,220);
+  color: #F29E1F;
+  transition: 700ms;
 }
 
 .search

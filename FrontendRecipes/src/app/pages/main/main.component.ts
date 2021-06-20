@@ -47,15 +47,7 @@ export class MainComponent implements OnInit {
       : this.isLikedRecipe = false;
   }
 
-  public showRecipe(): void {
-    const path: string = ProjectUrls.RecipesUrl + "/?id=" + this.recipe.id;
-    window.location.href = path;
-  }
-
-  public searchRecipes(searchText: string, event: any): void {
+  public searchRecipes(event: any): void {
     event.stopPropagation();
-    const path: string = ProjectUrls.RecipesUrl + "/?search=" + searchText;
-    window.location.href = path;
   }
-
 }

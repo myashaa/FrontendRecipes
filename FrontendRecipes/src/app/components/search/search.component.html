@@ -1,7 +1,7 @@
 <div class="search">
   <input class="search_input" placeholder="Название блюда..." [(ngModel)]="searchText">
-  <button class="search_button" (click)="searchRecipes(searchText)">Поиск</button>
+  <button class="search_button" [routerLink] = "['/recipes', searchText]">Поиск</button>
   <div class="sections">
-    <button class="section" *ngFor="let section of sections" (click)="searchRecipes(section)">{{section}}</button>
+    <button class="section" *ngFor="let section of sections" [routerLink] = "['/recipes', section]">{{section}}</button>
   </div>
 </div>  

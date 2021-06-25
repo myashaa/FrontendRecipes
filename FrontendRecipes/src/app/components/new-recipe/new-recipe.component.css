@@ -127,7 +127,9 @@
 
 .description_block
 {
-  height: 50px;
+  min-height: 50px;
+  height: auto;
+  max-height: 80px;
   padding: 6px 0 11px 27px;
   border: 1px solid rgba(145, 150, 161, 0.4);
   box-sizing: border-box;
@@ -139,6 +141,8 @@
   line-height: 28px;
   color: rgba(37, 41, 45, 0.5);
   outline: none;
+  background-color: #FFF;
+  overflow: auto;
 }
 
 .description_input:focus::placeholder {
@@ -181,6 +185,11 @@
 {
   resize: none;
   height: 117px;
+}
+
+.error
+{
+  border: 1px solid red!important;
 }
 
 .description_numbers
@@ -289,7 +298,6 @@
   -webkit-flex-direction: column;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 36px 30px;
   width: 320px;
   min-height: 299px;
@@ -336,6 +344,9 @@
 .ingredients_input__big
 {
   min-height: 229px;
+  height: auto;
+  margin-top: 20px;
+  overflow: auto;
 }
 
 .steps

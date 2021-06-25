@@ -16,6 +16,10 @@ export class FavoritesComponent implements OnInit {
 
   constructor(private recipeService: RecipeService, private router: Router) { }
 
+  public showRecipe(recipe: RecipeDto): void {
+    this.router.navigate([ProjectUrls.RecipeUrl, recipe.id]);
+  }
+
   ngOnInit(): void {
     this.recipeService.getFavoritesRecipes().then((recipes: RecipeDto[]) => {
       this.recipes = recipes;

@@ -7,11 +7,11 @@
       <img class="card_image" src="/assets/images/edit2.png" alt="edit photo"/>
     </button>
     <div class="data_inputs">
-      <input class="data_input data_input__small" placeholder="Имя" type="text" name="name" [(ngModel)]="author.name" autocomplete="off" disabled #name>
-      <input class="data_input data_input__small" placeholder="Логин" type="text" name="login" [(ngModel)]="author.login" autocomplete="off" disabled #login>
-      <input class="data_input data_input__small" placeholder="Пароль" type="password" name="password" [(ngModel)]="author.password" autocomplete="off" disabled #password>
+      <input class="data_input data_input__small" placeholder="Имя" type="text" name="name" [(ngModel)]="author.name" autocomplete="off" disabled #name maxlength="50">
+      <input class="data_input data_input__small" placeholder="Логин" type="text" name="login" [(ngModel)]="author.login" autocomplete="off" disabled #login maxlength="50">
+      <input class="data_input data_input__small" placeholder="Пароль" type="password" name="password" [(ngModel)]="author.password" autocomplete="off" disabled #password maxlength="50">
     </div>
-    <textarea class="data_input data_input__big" placeholder="Напишите немного о себе" type="text" name="description" [(ngModel)]="author.description" disabled #description></textarea>
+    <textarea class="data_input data_input__big" placeholder="Напишите немного о себе" type="text" name="description" [(ngModel)]="author.description" disabled #description maxlength="150"></textarea>
   </div>
   <div class="mini-cards">
     <div class="mini-card">  
@@ -29,6 +29,6 @@
   </div>
   <div class="recipes">
     <span class="recipes_header">Мои рецепты</span>
-    <app-card-recipe class="recipe" *ngFor="let recipe of recipes" [content]="recipe" [routerLink] = "['/recipe', recipe.id]"></app-card-recipe>
+    <app-card-recipe class="recipe" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe>
   </div>
 </div>

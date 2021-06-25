@@ -90,6 +90,11 @@
   width: 278px;
 }
 
+.error
+{
+  border: 1px solid red!important;
+}
+
 .inputs-small
 {
   display: -webkit-flex; 

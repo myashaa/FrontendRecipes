@@ -19,7 +19,8 @@ export class RecipesComponent implements OnInit {
   added!: boolean;
   profile!: boolean;
 
-  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) {
+  }
 
 
   ngOnInit(): void {
@@ -28,7 +29,7 @@ export class RecipesComponent implements OnInit {
       this.detailed = false;
       this.added = false;
       this.profile = false;
-      this.recipeService.getFourRecipes().then((recipes: RecipeDto[]) => {
+      this.recipeService.getFourRecipes().subscribe((recipes: RecipeDto[]) => {
         this.recipes = recipes;
       });
     }
@@ -38,10 +39,9 @@ export class RecipesComponent implements OnInit {
       this.detailed = false;
       this.added = false;
       this.profile = false;
-      let text = this.route.snapshot.params['searchText']
-      this.recipeService.searchFourRecipes(text).then((recipes: RecipeDto[]) => {
+      this.recipeService.searchFourRecipes().then((recipes: RecipeDto[]) => {
         this.recipes = recipes;
-      });      
+      });
     }
 
     if ((window.location.pathname.split("/")[1] == ProjectUrls.RecipeUrl) && (!this.detailed)) {
@@ -74,18 +74,24 @@ export class RecipesComponent implements OnInit {
     this.router.navigate([ProjectUrls.RecipesUrl]);
   }
 
+  public showRecipe(recipe: RecipeDto): void {
+    this.router.navigate([ProjectUrls.RecipeUrl, recipe.id]);
+  }
+
+  public searchRecipes(category: string, searchText: string): void {
+    this.router.navigate([ProjectUrls.RecipesUrl, category, searchText]);
+  }
+
   public showMoreRecipes(): void {
     if ((window.location.pathname.split("/")[1] == ProjectUrls.RecipesUrl) && (window.location.pathname.split("/")[2] == null)) {
-      this.recipeService.getFourRecipes().then((recipes: RecipeDto[]) => {
+      this.recipeService.getFourRecipes().subscribe((recipes: RecipeDto[]) => {
         let container = this.recipes.concat(recipes);
         this.recipes = container;
       });
     }
 
     if ((window.location.pathname.split("/")[1] == ProjectUrls.RecipesUrl) && (window.location.pathname.split("/")[2] != null)) {
-      let text = this.route.snapshot.params['searchText'];
-      text = text.replace(/%20/g, " ");
-      this.recipeService.searchFourRecipes(text).then((recipes: RecipeDto[]) => {
+      this.recipeService.searchFourRecipes().then((recipes: RecipeDto[]) => {
         let container = this.recipes.concat(recipes);
         this.recipes = container;
       });

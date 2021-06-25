@@ -26,12 +26,18 @@ export class MainComponent implements OnInit {
     this.router.navigate([ProjectUrls.AddUrl]);
   }
 
+  public showRecipe(): void {
+    this.router.navigate([ProjectUrls.RecipeUrl, this.recipe.id]);
+  }
+
+  public searchRecipes(event: any, category: string, searchText: string): void {
+    this.router.navigate([ProjectUrls.RecipesUrl, category, searchText]);
+    event.stopPropagation();
+  }
+
   public switchLikedRecipe(event: any) {
     event.stopPropagation();
     this.isLikedRecipe = !this.isLikedRecipe;
-    (this.recipe.isLike)
-      ? this.recipe.isLike = false
-      : this.recipe.isLike = true;
     (this.isLikedRecipe)
       ? this.recipe.likes++
       : this.recipe.likes--;
@@ -41,13 +47,5 @@ export class MainComponent implements OnInit {
     this.recipeService.getFavoriteRecipe().then((recipe: RecipeDto) => {
       this.recipe = recipe;
     });
-
-    (this.recipe.isLike)
-      ? this.isLikedRecipe = true
-      : this.isLikedRecipe = false;
-  }
-
-  public searchRecipes(event: any): void {
-    event.stopPropagation();
   }
 }

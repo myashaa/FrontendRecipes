@@ -2,8 +2,8 @@
   <div class="title">
     <span class="title_text">{{recipe.name}}</span>
     <div class="buttons">
-      <button class="title_button title_button__delete" (click)="deleteRecipe(recipe.id)"></button>
-      <button class="title_button title_button__edit" [routerLink] = "['/added', recipe.id]">Редактировать</button>
+      <button class="title_button title_button__delete" (click)="deleteRecipe()"></button>
+      <button class="title_button title_button__edit" (click)="editRecipe()">Редактировать</button>
     </div>
   </div>
   <app-card-recipe class="card" [content]="recipe"></app-card-recipe>
@@ -12,7 +12,7 @@
       <span class="ingredients_header">Ингридиенты</span>
       <div class="ingredients_block" *ngFor="let ingredient of recipe.ingredients"> 
         <span class="ingredients_title">{{ingredient.title}}</span>
-        <span class="ingredients_ingredient" *ngFor="let item of ingredient.items">{{item}}</span>
+        <span class="ingredients_ingredient" *ngFor="let item of ingredient.items.split(',')">{{item}}</span>
       </div>
     </div>
     <div class="steps">

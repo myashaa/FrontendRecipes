@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 import { RecipeDto } from 'src/app/js/dto/recipe.dto';
 
@@ -15,15 +16,12 @@ export class CardRecipeComponent implements OnInit {
   isLikedRecipe!: boolean;
   isDetailedRecipe!: boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
 
   public switchFavoriteRecipe(event: any) {
     event.stopPropagation();
     this.isFavoriteRecipe = !this.isFavoriteRecipe;
-    (this.content.isFavorite)
-      ? this.content.isFavorite = false
-      : this.content.isFavorite = true;
     (this.isFavoriteRecipe)
       ? this.content.favorites++
       : this.content.favorites--;
@@ -32,28 +30,19 @@ export class CardRecipeComponent implements OnInit {
   public switchLikedRecipe(event: any) {
     event.stopPropagation();
     this.isLikedRecipe = !this.isLikedRecipe;
-    (this.content.isLike)
-      ? this.content.isLike = false
-      : this.content.isLike = true;
     (this.isLikedRecipe)
       ? this.content.likes++
       : this.content.likes--;
   }
 
   ngOnInit(): void {
-    (this.content.isFavorite)
-      ? this.isFavoriteRecipe = true
-      : this.isFavoriteRecipe = false;
-    (this.content.isLike)
-      ? this.isLikedRecipe = true
-      : this.isLikedRecipe = false;
-    
     ((window.location.pathname.split("/")[1] == ProjectUrls.RecipeUrl) && (!this.isDetailedRecipe))
       ? this.isDetailedRecipe = true
       : this.isDetailedRecipe = false;
   }
   
-  public searchRecipes(event: any): void {
+  public searchRecipes(event: any, category: string, searchText: string): void {
+    this.router.navigate([ProjectUrls.RecipesUrl, category, searchText]);
     event.stopPropagation();
   }
 

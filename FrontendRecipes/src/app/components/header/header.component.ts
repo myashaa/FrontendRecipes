@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild('favorites', { static: true }) Favorites!: ElementRef;
 
   public author!: AuthorDto;
-  public isAuthorized: boolean = true;
+  public isAuthorized: boolean = false;
 
   constructor(public dialog: MatDialog, private router: Router, private authorService: AuthorService) { }
   

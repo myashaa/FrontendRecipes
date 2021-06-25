@@ -10,9 +10,9 @@ export class AuthorService {
   constructor() {
     this.author = {
       id: 1,
-      name: "Иванова Елена Игоревна",
+      name: "Иванова Екатерина Игоревна",
       login: "glazest",
-      password: "123456",
+      password: "12345678",
       description: "Я хороший повар",
       amountOfRecipes: 15,
       amountOfLikes: 15,

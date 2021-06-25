@@ -17,14 +17,17 @@ export class RecipeComponent implements OnInit {
   constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.params['id'];
-    this.recipeService.getRecipe(id).then((recipe: RecipeDto) => {
+    this.recipeService.getRecipe().then((recipe: RecipeDto) => {
       this.recipe = recipe;
     });
   }
 
-  public deleteRecipe(id: number): void {
-    this.recipeService.deleteRecipe(id);
+  public deleteRecipe(): void {
+    this.recipeService.deleteRecipe();
     this.router.navigate([ProjectUrls.RecipesUrl]);
+  }
+
+  public editRecipe(): void {
+    this.router.navigate([ProjectUrls.AddUrl, this.recipe.id]);
   }
 }

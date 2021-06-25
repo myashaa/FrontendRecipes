@@ -51,10 +51,15 @@
   left: 33%;
 }
 
+.title_button__delete:hover:before
+{
+  content: url("/assets/images/delete2.png");
+}
+
 .title_button__delete:hover
 {
-  background: #FDB100;
-  border: 1px solid #FDB100;
+  background: rgb(253, 137, 0, 0.9);
+  border: 1px solid rgb(253, 137, 0, 0.9);
   transition: 700ms;
 
 }
@@ -79,13 +84,13 @@
 
 .title_button__edit:hover:before
 {
-  content: url("/assets/images/edit2.png");
+  content: url("/assets/images/edit3.png");
 }
 
 .title_button__edit:hover
 {
   border: 1px solid #FDB100;
-  background-color: #FFF;
+  background-color: rgb(253, 137, 0, 0.1);
   color: #FDB100;
   transition: 700ms;
 }

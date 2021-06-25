@@ -1,6 +1,7 @@
 import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 import { AuthorDto } from 'src/app/js/dto/author.dto';
 import { RecipeDto } from 'src/app/js/dto/recipe.dto';
@@ -20,9 +21,10 @@ export class ProfileComponent implements OnInit {
 
   public recipes!: RecipeDto[];
   public author!: AuthorDto;
-  public flag: boolean = false;
+  public protection: boolean = true;
+  public error!: boolean;
 
-  constructor(private recipeService: RecipeService, private authorService: AuthorService) {
+  constructor(private recipeService: RecipeService, private authorService: AuthorService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -35,20 +37,35 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  public showRecipe(recipe: RecipeDto): void {
+    this.router.navigate([ProjectUrls.RecipeUrl, recipe.id]);
+  }
+
   public editProfile(): void {
-    if (!this.flag) {
+    console.log(this.protection);
+    if (this.protection) {
       this.Name.nativeElement.removeAttribute("disabled");
       this.Login.nativeElement.removeAttribute("disabled");
       this.Password.nativeElement.removeAttribute("disabled");
       this.Description.nativeElement.removeAttribute("disabled");
+      this.protection = false;
     } else {
-      this.Name.nativeElement.setAttribute("disabled", "");
-      this.Login.nativeElement.setAttribute("disabled", "");
-      this.Password.nativeElement.setAttribute("disabled", "");
-      this.Description.nativeElement.setAttribute("disabled", "");
+      this.Name.nativeElement.classList.remove('error');
+      this.Login.nativeElement.classList.remove('error'); 
+      this.Password.nativeElement.classList.remove('error');
 
-      this.authorService.updateAuthor(this.author);
+      this.error = false;
+      if (this.author.name == "") { this.Name.nativeElement.classList.add('error'); this.error = true; }
+      if (this.author.login == "") { this.Login.nativeElement.classList.add('error'); this.error = true; }
+      if (this.author.password.length < 8) { this.Password.nativeElement.classList.add('error'); this.error = true; }
+      if (!this.error) {
+        this.Name.nativeElement.setAttribute("disabled", "");
+        this.Login.nativeElement.setAttribute("disabled", "");
+        this.Password.nativeElement.setAttribute("disabled", "");
+        this.Description.nativeElement.setAttribute("disabled", "");
+        this.authorService.updateAuthor(this.author);
+        this.protection = true;
+      }
     }
-    this.flag = !this.flag;
   }
 }

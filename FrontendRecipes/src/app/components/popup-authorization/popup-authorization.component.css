@@ -81,6 +81,11 @@
   border: 1px solid #FDB100;
 }
 
+.error
+{
+  border: 1px solid red!important;
+}
+
 .buttons
 {
   display: -webkit-flex; 

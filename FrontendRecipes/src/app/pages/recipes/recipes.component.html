@@ -25,6 +25,7 @@
     </div>
     <div class="cards">
       <app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe>
+      <div *ngIf="loading" class="loading"></div>
       <button class="cards_button" (click)="showMoreRecipes()">Загрузить еще</button>
     </div>
   </div>
@@ -41,4 +42,5 @@
     <app-profile></app-profile>
   </div>
 </div> 
+<button *ngIf="scroll" class="scroll" (click)="scrollToTop()">&#10140;</button>
 <app-footer></app-footer>

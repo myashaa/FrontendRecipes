@@ -281,3 +281,42 @@
   color: #FDB100;
   cursor: pointer;
 }
+
+.scroll
+{
+  position: fixed;
+  bottom: 3.5%;
+  right: 2.5%;
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
+  color: rgba(255, 215, 120);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transform: rotate(-90deg);
+}
+
+.scroll:hover
+{
+  bottom: 4%;
+  color: #FDB100;
+  transition: 300ms;
+}
+
+.loading {
+  width: 40px;
+  height: 40px;
+  border: 7px solid rgba(255, 215, 120, 0.6);  /* полупрозрачный цвет ставить не стоит, появляются ненужные линии */
+  border-top-color: rgba(255, 215, 120);
+  border-radius: 100%;
+  -webkit-animation: loading linear .7s infinite;
+  animation: loading linear .7s infinite;
+  margin: 0 auto 20px;
+}
+@-webkit-keyframes loading {
+  100% {-webkit-transform: rotate(360deg);}
+}
+@keyframes loading {
+  100% {transform: rotate(360deg);}
+}

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 import { RecipeService } from 'src/app/js/services/recipe.service';
 import { RecipeDto } from 'src/app/js/dto/recipe.dto';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -15,6 +16,12 @@ export class MainComponent implements OnInit {
 
   public recipe!: RecipeDto;
   isLikedRecipe!: boolean;
+  scroll: boolean = false;
+
+  @HostListener("document:scroll") onScroll() {
+    this.scroll = true;
+    if (document.documentElement.scrollTop == 0) { this.scroll = false; }
+  }
 
   constructor(public dialog: MatDialog, private router: Router, private recipeService: RecipeService) {}
 
@@ -43,7 +50,13 @@ export class MainComponent implements OnInit {
       : this.recipe.likes--;
   }
 
+  public scrollToTop(): void {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  }
+
   ngOnInit(): void {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+
     this.recipeService.getFavoriteRecipe().then((recipe: RecipeDto) => {
       this.recipe = recipe;
     });

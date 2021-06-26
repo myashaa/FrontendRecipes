@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BackendUrls } from '../constants/backendUrls';
 import { RecipeDto } from '../dto/recipe.dto';
 
 @Injectable({
@@ -196,6 +197,19 @@ export class RecipeService {
     }];
   }
 
+  public getFourRecipes(): Observable<RecipeDto[]> {
+    return this.http.get<RecipeDto[]>(BackendUrls.RecipeUrl);
+  }
+
+  public getRecipe(id: number): Observable<RecipeDto> {
+    return this.http.get<RecipeDto>(`${BackendUrls.RecipeUrl}${"/"}${id}`);
+  }
+
+  public searchFourRecipes(category: string, SearchText: string): Observable<RecipeDto[]> {
+    return this.http.get<RecipeDto[]>(`${BackendUrls.RecipeUrl}${"/"}${category}${"/"}${SearchText}`);
+  }
+
+  //
   public getFavoriteRecipe(): Promise<RecipeDto> {
     return new Promise<RecipeDto>((resolve, reject) => {
       resolve({
@@ -246,68 +260,6 @@ export class RecipeService {
       }
       );
     });
-  }
-
-  public getRecipe(): Promise<RecipeDto> {
-    return new Promise<RecipeDto>((resolve, reject) => {
-      resolve({
-        id: 1,
-        imageUrl: "/assets/images/card0.png",
-        author: "glazest",
-        tags: "первые блюда,суп,тыква",
-        favorites: 96,
-        likes: 356,
-        name: "Тыквенный супчик",
-        description: "Если у вас осталась тыква, и вы не знаете что с ней сделать, то это решение для вас! Ароматный, согревающий суп-пюре на кокосовом молоке. Можно даже в Пост!",
-        cookingTimeInMinutes: 35,
-        totalPersons: 5,
-        ingredients: [{
-          title: "Для панна котты",
-          items: "Сливки-20-30% - 500мл."
-        },
-        {
-          title: "Для клубничного желе",
-          items: "Сливки-20-30% - 500мл."
-        }],
-        steps: [
-          {
-            number: 1,
-            description: "Приготовим панна котту: Зальем желатин молоком и поставим на 30 минут для набухания. В сливки добавим сахар и ванильный сахар. Доводим до кипения (не кипятим!)."
-          },
-          {
-            number: 2,
-            description: "Добавим в сливки набухший в молоке желатин. Перемешаем до полного растворения. Огонь отключаем. Охладим до комнатной температуры."
-          },
-          {
-            number: 3,
-            description: "Разольем охлажденные сливки по креманкам и поставим в холодильник до полного застывания. Это около 3-5 часов."
-          },
-          {
-            number: 4,
-            description: "Приготовим клубничное желе: Клубнику помоем, очистим от плодоножек. Добавим сахар. Взбиваем клубнику с помощью блендера в пюре."
-          },
-          {
-            number: 5,
-            description: "Добавим в миску с желатином 2ст.ложки холодной воды и сок лимона. Перемешаем и поставим на 30 минут для набухания. Доведем клубничное пюре до кипения. Добавим набухший желатин, перемешаем до полного растворения. Огонь отключаем. Охладим до комнатной температуры."
-          },
-          {
-            number: 6,
-            description: "Сверху на застывшие сливки добавим охлажденное клубничное желе. Поставим в холодильник до полного застывания клубничного желе. Готовую панна коту подаем с фруктами."
-          }
-        ]
-      }
-      );
-    });
-  }
-
-  public searchFourRecipes(): Promise<RecipeDto[]> {
-    return new Promise<RecipeDto[]>((resolve, reject) => {
-      resolve(this.recipes);
-    });
-  }
-
-  public getFourRecipes(): Observable<RecipeDto[]> {
-    return this.http.get<RecipeDto[]>('https://localhost:44352/api/recipe');
   }
 
   public addRecipe(recipe: RecipeDto): Promise<void> {

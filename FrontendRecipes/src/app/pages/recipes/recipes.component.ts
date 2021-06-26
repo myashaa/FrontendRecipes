@@ -4,6 +4,7 @@ import { RecipeDto } from 'src/app/js/dto/recipe.dto';
 import { RecipeService } from 'src/app/js/services/recipe.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-recipes',
@@ -18,12 +19,21 @@ export class RecipesComponent implements OnInit {
   detailed!: boolean;
   added!: boolean;
   profile!: boolean;
+  loading: boolean = true;
+  scroll: boolean = false;
+
+  @HostListener("document:scroll") onScroll() {
+    this.scroll = true;
+    if (document.documentElement.scrollTop == 0) { this.scroll = false; }
+  }
 
   constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) {
   }
 
 
   ngOnInit(): void {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+
     if ((window.location.pathname.split("/")[1] == ProjectUrls.RecipesUrl) && (window.location.pathname.split("/")[2] == null) && (!this.main)) {
       this.main = true;
       this.detailed = false;
@@ -31,6 +41,9 @@ export class RecipesComponent implements OnInit {
       this.profile = false;
       this.recipeService.getFourRecipes().subscribe((recipes: RecipeDto[]) => {
         this.recipes = recipes;
+        if ((this.recipes != undefined) && (this.recipes.length > 0))  {
+          this.loading = false;
+        }
       });
     }
 
@@ -39,8 +52,13 @@ export class RecipesComponent implements OnInit {
       this.detailed = false;
       this.added = false;
       this.profile = false;
-      this.recipeService.searchFourRecipes().then((recipes: RecipeDto[]) => {
+      let category = this.route.snapshot.params['category'];
+      let searchText = this.route.snapshot.params['searchText'];
+      this.recipeService.searchFourRecipes(category, searchText).subscribe((recipes: RecipeDto[]) => {
         this.recipes = recipes;
+        if ((this.recipes != undefined) && (this.recipes.length > 0)) {
+          this.loading = false;
+        }
       });
     }
 
@@ -87,14 +105,26 @@ export class RecipesComponent implements OnInit {
       this.recipeService.getFourRecipes().subscribe((recipes: RecipeDto[]) => {
         let container = this.recipes.concat(recipes);
         this.recipes = container;
+        if ((this.recipes != undefined) && (this.recipes.length > 0)) {
+          this.loading = false;
+        }
       });
     }
 
     if ((window.location.pathname.split("/")[1] == ProjectUrls.RecipesUrl) && (window.location.pathname.split("/")[2] != null)) {
-      this.recipeService.searchFourRecipes().then((recipes: RecipeDto[]) => {
+      let category = this.route.snapshot.params['category'];
+      let searchText = this.route.snapshot.params['searchText'];
+      this.recipeService.searchFourRecipes(category, searchText).subscribe((recipes: RecipeDto[]) => {
         let container = this.recipes.concat(recipes);
         this.recipes = container;
+        if ((this.recipes != undefined) && (this.recipes.length > 0)) {
+          this.loading = false;
+        }
       });
     }
+  }
+
+  public scrollToTop(): void {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
 }

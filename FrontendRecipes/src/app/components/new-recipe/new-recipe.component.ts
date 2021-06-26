@@ -151,7 +151,8 @@ export class NewRecipeComponent implements OnInit {
     }
 
     if ((window.location.pathname.split("/")[1] == ProjectUrls.AddUrl) && (window.location.pathname.split("/")[2] != null)) {
-      this.recipeService.getRecipe().then((recipe: RecipeDto) => {
+      let id = this.route.snapshot.params['id'];
+      this.recipeService.getRecipe(id).subscribe((recipe: RecipeDto) => {
         this.recipe = recipe;
       });
     }

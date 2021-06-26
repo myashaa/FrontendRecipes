@@ -1,3 +1,4 @@
+import { HostListener } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectUrls } from 'src/app/js/constants/projectUrls';
@@ -13,6 +14,12 @@ export class FavoritesComponent implements OnInit {
 
   empty: boolean = true;
   public recipes!: RecipeDto[];
+  scroll: boolean = false;
+
+  @HostListener("document:scroll") onScroll() {
+    this.scroll = true;
+    if (document.documentElement.scrollTop == 0) { this.scroll = false; }
+  }
 
   constructor(private recipeService: RecipeService, private router: Router) { }
 
@@ -20,7 +27,13 @@ export class FavoritesComponent implements OnInit {
     this.router.navigate([ProjectUrls.RecipeUrl, recipe.id]);
   }
 
+  public scrollToTop(): void {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  }
+
   ngOnInit(): void {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+
     this.recipeService.getFavoritesRecipes().then((recipes: RecipeDto[]) => {
       this.recipes = recipes;
       if (this.recipes.length != 0) {

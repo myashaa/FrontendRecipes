@@ -74,3 +74,25 @@
   color: #FDB100;
   opacity: 0.5;
 }
+
+.scroll
+{
+  position: fixed;
+  bottom: 3.5%;
+  right: 2.5%;
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
+  color: rgba(255, 215, 120);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transform: rotate(-90deg);
+}
+
+.scroll:hover
+{
+  bottom: 4%;
+  color: #FDB100;
+  transition: 300ms;
+}

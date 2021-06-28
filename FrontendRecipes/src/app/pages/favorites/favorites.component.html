@@ -5,7 +5,8 @@
   </div>
   <span class="empty" *ngIf="empty">Ваш список пуст</span> 
   <div class="cards" *ngIf="!empty">
-    <app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe"></app-card-recipe>
+    <app-card-recipe class="card" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe>
   </div>
 </div>
-<app-footer class="footer"></app-footer>
+<button *ngIf="scroll" class="scroll" (click)="scrollToTop()">&#10140;</button>
+<app-footer></app-footer>

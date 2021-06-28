@@ -5,21 +5,44 @@ import { AuthorDto } from '../dto/author.dto';
   providedIn: 'root'
 })
 export class AuthorService {
+  
+  private author: AuthorDto;
+  constructor() {
+    this.author = {
+      id: 1,
+      name: "Иванова Екатерина Игоревна",
+      login: "glazest",
+      password: "12345678",
+      description: "Я хороший повар",
+      amountOfRecipes: 15,
+      amountOfLikes: 15,
+      amountOfFavorites: 15
+    }
+  }
+  
+  public checkAuthor(author: AuthorDto): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      resolve(true);
+    })
+  }
 
-  constructor() { }
+  public createAuthor(author: AuthorDto): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.author = author;
+      resolve();
+    })
+  }
 
   public getAuthor(): Promise<AuthorDto> {
     return new Promise<AuthorDto>((resolve, reject) => {
-      resolve({
-        id: 1,
-        name: "Иванова Елена Игоревна",
-        login: "glazest",
-        password: "123456",
-        description: "Я хороший повар",
-        amountOfRecipes: 15,
-        amountOfLikes: 15,
-        amountOfFavorites: 15
-      });
+      resolve(this.author);
     });
+  }
+
+  public updateAuthor(author: AuthorDto): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.author = author;
+      resolve();
+    })
   }
 }

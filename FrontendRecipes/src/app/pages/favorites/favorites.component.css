@@ -1,6 +1,7 @@
 .favorites-page
 {
-  /* background: url(images/wave1.png) top 90px left 0/1440px 1403px no-repeat, url(images/wave2.png) top 1140px left 0/1440px 1403px no-repeat, #FEFEFB; */
+  background: url(/assets/images/bg.png) top 0 left 0/1440px 2806px repeat-y, #FEFEFB;
+  background-size: 100%;
   min-height: 1200px;
   width: 100%;
   padding: 0;
@@ -45,18 +46,17 @@
 {
   display: block;
   margin-bottom: 20px;
-  cursor: pointer;
+  border-radius: 72px 24px 24px 24px;
 }
 
-.card_link
+.card:last-child
 {
-  text-decoration: none;
+  margin-bottom: 105px;
 }
 
-.footer
-{
-  display: block;
-  margin-top: 85px;
+.card:hover{
+  box-shadow: 0 0 30px rgba(210, 180, 140);
+  transition: 300ms;
 }
 
 .empty
@@ -73,4 +73,26 @@
   text-align: center;
   color: #FDB100;
   opacity: 0.5;
+}
+
+.scroll
+{
+  position: fixed;
+  bottom: 3.5%;
+  right: 2.5%;
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
+  color: rgba(255, 215, 120);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transform: rotate(-90deg);
+}
+
+.scroll:hover
+{
+  bottom: 4%;
+  color: #FDB100;
+  transition: 300ms;
 }

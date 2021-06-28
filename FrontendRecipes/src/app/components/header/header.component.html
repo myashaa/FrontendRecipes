@@ -1,0 +1,15 @@
+<div class="header">
+  <div class="pages">
+    <span class="recipes">Recipes</span>
+    <div class="buttons">
+      <button (click)="goToMainPage()" class="header_button header_button__main" #main>Главная</button>
+      <button (click)="goToRecipesPage()" class="header_button header_button__recipes" #recipes>Рецепты</button>
+      <button (click)="goToFavoritesPage()" class="header_button header_button__favorites" #favorites>Избранное</button>
+    </div>
+  </div>
+  <button *ngIf="!isAuthorized" (click)="openPopupAuthorization ()" class="header_button header_button__enter">Войти</button>
+  <div *ngIf="isAuthorized" class="header_user">
+    <button (click)="goToProfilePage()" class="header_button header_button__name">Привет, {{author.name.split(" ")[1]}}</button>
+    <button class="header_button header_button__exit"></button>
+  </div>
+</div>

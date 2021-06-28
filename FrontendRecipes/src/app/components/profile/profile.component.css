@@ -1,0 +1,241 @@
+.title
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 83.2%;
+  height: 112px;
+  padding: 10px 8.4% 0;
+}
+
+.title_text
+{
+  width: 811px;
+  height: 62px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 62px;
+  color: #25292D;
+}
+
+.data
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1px 8.4% 0;
+  width: 73.2%;
+  height: 191px;
+  background: #FFFFFF;
+  box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
+  border-radius: 72px 24px 24px 24px;
+  padding: 60px 5%;
+  position: relative;
+}
+
+.edit
+{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  border: none;
+  background-color: #FFF;
+  cursor: pointer;
+  background: none;
+  cursor: pointer;
+}
+
+.data_inputs  
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 51.5%;
+  height: 100%;
+  background: #FFF;
+}
+
+.data_input
+{
+  border: 1px solid rgba(145, 150, 161, 0.4);
+  box-sizing: border-box;
+  border-radius: 16px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: rgba(37, 41, 45, 0.5);
+  outline: none;
+}
+
+.data_input__small
+{
+  padding: 11px 0 11px 26px;
+  height: 50px;
+  width: 100%;
+}
+
+.data_input__big
+{
+  resize: none;
+  padding: 11px 0 11px 32px;
+  width: 44.8%;
+  height: 100%;
+}
+
+.data_input:focus::placeholder {
+  transform: translate(0px, -17px);
+  font-size: 11px;
+  color: #FDB100;
+}
+
+.data_input:hover
+{
+  border: 1px solid #FDB100;
+}
+.data_input:focus
+{
+  border: 1px solid #FDB100;
+}
+
+.error
+{
+  border: 1px solid red!important;
+}
+
+.mini-cards
+{
+  margin-top: 38px;
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 83.2%;
+  height: 190px;
+  padding: 2px 8.4%;
+}
+
+.mini-card
+{
+  display: -webkit-flex; 
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 31.65%;
+  height: 151px;
+  background: #FFFFFF;
+  box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
+  border-radius: 24px;
+  position: relative;
+}
+
+.mini-card_text
+{
+  display: block;
+  margin: 94px 0 16px 22px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 30px;
+  color: #25292D;
+  width: 177.58px;
+  height: 28px;
+  font-size: 18px;
+}
+
+.mini-card::before
+{
+  content: url("/assets/images/mini-card1.png");
+  background-color: #FFEFCC;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  border-radius: 12px;
+  padding: 13px;
+}
+
+.mini-card_number
+{
+  display: block;
+  margin: 60px 7px 16px 0;
+  font-family: Montserrat;
+  font-style: normal;
+  line-height: 30px;
+  width: 126.31px;
+  height: 104.88px;
+  font-weight: 600;
+  font-size: 107px;
+  line-height: 30px;
+  color: #FDB100;
+}
+
+.recipes
+{
+  -webkit-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 8.4% 0;
+}
+
+.recipes_header
+{
+  width: 177px;
+  height: 30px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: #25292D;
+  margin-bottom: 40px;
+}
+
+.recipe
+{
+  display: block;
+  margin-bottom: 20px;
+  border-radius: 72px 24px 24px 24px;
+}
+
+.recipe:hover{
+  box-shadow: 0 0 30px rgba(210, 180, 140);
+  transition: 300ms;
+}
+
+.recipe:last-child
+{
+  margin-bottom: 70px;
+}
+
+.loading {
+  width: 40px;
+  height: 40px;
+  border: 7px solid rgba(255, 215, 120, 0.6);
+  border-top-color: rgba(255, 215, 120);
+  border-radius: 100%;
+  -webkit-animation: loading linear .7s infinite;
+  animation: loading linear .7s infinite;
+  margin: 0 auto 30px;
+}
+@-webkit-keyframes loading {
+  100% {-webkit-transform: rotate(360deg);}
+}
+@keyframes loading {
+  100% {transform: rotate(360deg);}
+}

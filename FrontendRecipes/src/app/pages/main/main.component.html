@@ -12,7 +12,7 @@
         <button class="authorization-content_button authorization-contentt_button__add" (click)="goToAddRecipe()">
           Добавить рецепт
         </button>
-        <button (click)="openPopupSwitch()" class="authorization-content_button authorization-contentt_button__enter">
+        <button (click)="openPopupAuthorization()" class="authorization-content_button authorization-contentt_button__enter">
           Войти
         </button>
       </div>
@@ -27,25 +27,25 @@
       Это позволит быстро находить любые категории.
     </span>
     <div class="cards">
-      <div class="card card_1">
+      <div class="card card_1" (click)="searchRecipes($event, 'tag', 'Простые блюда')">
         <span class="card_header">Простые блюда</span>
         <span class="card_text">
           Время приготовления таких блюд не более 1 часа
         </span>
       </div>
-      <div class="card card_2">
+      <div class="card card_2" (click)="searchRecipes($event, 'tag', 'Детское')">
         <span class="card_header">Детское</span>
         <span class="card_text">
           Самые полезные блюда которые можно детям любого возраста
         </span>
       </div>
-      <div class="card card_3">
+      <div class="card card_3" (click)="searchRecipes($event, 'tag', 'От шеф-поваров')">
         <span class="card_header">От шеф-поваров</span>
         <span class="card_text">
           Требуют умения, времени и терпения, зато как в ресторане
         </span>
       </div>
-      <div class="card card_4">
+      <div class="card card_4" (click)="searchRecipes($event, 'tag', 'На праздник')">
         <span class="card_header">На Праздник</span>
         <span class="card_text">
           Чем удивить гостей, чтобы все были сыты за праздничным столом
@@ -53,18 +53,24 @@
       </div>
     </div>
   </div>
-  <div class="example">
+  <div class="example" (click)="showRecipe()">
+    <img class="example_image" src="{{recipe.imageUrl}}" alt="card photo"/>
+    <div class="example_buttons">
+      <button class="button button_like" (click)="switchLikedRecipe($event)">
+        <img class="button_image" *ngIf="!isLikedRecipe" src="/assets/images/favorite_border2.png" alt="heart photo"/>
+        <img class="button_image" *ngIf="isLikedRecipe" src="/assets/images/favorite.png" alt="heart photo"/>
+        <span class="button_text">{{recipe.likes}}</span>
+      </button>
+      <button class="button button_favorite">
+        <img class="button_image" src="/assets/images/timer_border.png" alt="timer photo"/>
+        <span class="button_text">{{recipe.cookingTimeInMinutes}}</span>
+      </button>
+    </div>  
     <div class="example-content">
-      <span class="example_header">
-        Тыквенный супчик на кокосовом молоке
-      </span>
-      <span class="example_text">
-        Если у вас осталась тыква, и вы не знаете что с ней сделать, 
-        то это решение для вас! Ароматный, согревающий суп-пюре на 
-        кокосовом молоке. Можно даже в Пост!
-      </span>
+      <span class="example_header">{{recipe.name}}</span>
+      <span class="example_text">{{recipe.description}}</span>
     </div>
-    <span class="example_tag">@glazest</span>
+    <span class="example_tag" (click)="searchRecipes($event, 'author', recipe.author)">@{{recipe.author}}</span>
   </div>
   <div class="search">
     <span class="search_header">Поиск рецептов</span>
@@ -73,5 +79,6 @@
     </span>
     <div class="search_directive"><app-search></app-search></div>
   </div>
-</div>  
+</div> 
+<button *ngIf="scroll" class="scroll" (click)="scrollToTop()">&#10140;</button>
 <app-footer></app-footer>

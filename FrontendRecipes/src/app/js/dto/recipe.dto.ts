@@ -5,12 +5,9 @@ export interface RecipeDto {
   id: number;
   imageUrl: string;
   author: string;
-  authorId: number;
-  tags: string[];
+  tags: string;
   favorites: number;
-  isFavorite: boolean;
   likes: number;
-  isLike: boolean;
   name: string;
   description: string;
   cookingTimeInMinutes: number;

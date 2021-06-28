@@ -281,14 +281,10 @@
   -webkit-flex-direction: row;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
   width: 83.2%;
   height: 543px;
   margin: 15px auto 52px;
-  background: url(/assets/images/card0.png);
-  background-position-x: left;
-  background-repeat: no-repeat;
-  position: relative;
+  position: relative; 
   border-radius: 72px 0px;
   border: 7px solid rgb(255, 255, 255, 0.1);
 }
@@ -312,6 +308,13 @@
 {
   box-shadow: 0 0 5px 3px rgba(255, 165, 0, 0.45);
   transition: 300ms;
+}
+
+.example_image
+{
+  width: 543px;
+  height: 543px;
+  margin-right: 6%;
 }
 
 .example_buttons
@@ -426,11 +429,11 @@
 
 .example_tag
 {
-  width: 108px;
   height: 30px;
   position: absolute;
   top: 475px;
   left: 0;
+  padding: 2px 15px 0px;
   background-color: #FFF;
   text-align: center;
   font-family: Montserrat;
@@ -439,7 +442,6 @@
   font-size: 16px;
   line-height: 28px;
   color: #FDB100;
-  padding-top: 2px;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
 }

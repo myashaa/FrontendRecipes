@@ -14,19 +14,29 @@ import { ElementRef } from '@angular/core';
   styleUrls: ['./popup-authorization.component.css']
 })
 export class PopupAuthorizationComponent implements OnInit {
+
   @ViewChild('login', { static: true }) Login!: ElementRef;
   @ViewChild('password', { static: true }) Password!: ElementRef;
   @ViewChild('button', { static: true }) Button!: ElementRef;
 
-  public author!: AuthorDto;
-  public isAuthor!: boolean;
-  public error!: boolean;
+  public author: AuthorDto = {
+    id: 0,
+    name: "",
+    login: "",
+    password: "",
+    description: "",
+    amountOfRecipes: 0,
+    amountOfLikes: 0,
+    amountOfFavorites: 0
+  };
+  private isAuthor!: boolean;
+  private error!: boolean;
 
-  constructor(public dialog: MatDialog, private router: Router, private authorService: AuthorService) {
-    this.author = this.getNewAuthor();
-  }
+  constructor(public dialog: MatDialog, private router: Router, private authorService: AuthorService) { }
 
-  public openPopupRegistration() {
+  ngOnInit(): void { }
+
+  public openPopupRegistration(): void {
     this.dialog.open(PopupRegistrationComponent);
   }
 
@@ -45,22 +55,6 @@ export class PopupAuthorizationComponent implements OnInit {
         }
       });
     }
-  }
-
-  private getNewAuthor(): AuthorDto {
-    return {
-      id: 0,
-      name: "",
-      login: "",
-      password: "",
-      description: "",
-      amountOfRecipes: 0,
-      amountOfLikes: 0,
-      amountOfFavorites: 0
-    };
-  }
-
-  ngOnInit(): void {
   }
 
 }

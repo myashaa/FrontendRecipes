@@ -13,28 +13,26 @@ import { HostListener } from '@angular/core';
 })
 export class RecipesComponent implements OnInit {
 
-  public recipes!: RecipeDto[];
-
-  main!: boolean;
-  detailed!: boolean;
-  added!: boolean;
-  profile!: boolean;
-  loading: boolean = true;
-  scroll: boolean = false;
-
   @HostListener("document:scroll") onScroll() {
     this.scroll = true;
     if (document.documentElement.scrollTop == 0) { this.scroll = false; }
   }
 
-  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) {
-  }
+  public recipes!: RecipeDto[];
+  public main!: boolean;
+  public detailed!: boolean;
+  public added!: boolean;
+  public profile!: boolean;
+  public loading: boolean = true;
+  public scroll: boolean = false;
+
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
 
-    if ((window.location.pathname.split("/")[1] == ProjectUrls.RecipesUrl) && (window.location.pathname.split("/")[2] == null) && (!this.main)) {
+    if ((window.location.pathname.split("/")[1] == ProjectUrls.RecipesUrl) && (window.location.pathname.split("/")[2] == null)) {
       this.main = true;
       this.detailed = false;
       this.added = false;
@@ -47,7 +45,7 @@ export class RecipesComponent implements OnInit {
       });
     }
 
-    if ((window.location.pathname.split("/")[1] == ProjectUrls.RecipesUrl) && (window.location.pathname.split("/")[2] != null) && (!this.detailed)) {
+    if ((window.location.pathname.split("/")[1] == ProjectUrls.RecipesUrl) && (window.location.pathname.split("/")[2] != null)) {
       this.main = true;
       this.detailed = false;
       this.added = false;
@@ -62,21 +60,21 @@ export class RecipesComponent implements OnInit {
       });
     }
 
-    if ((window.location.pathname.split("/")[1] == ProjectUrls.RecipeUrl) && (!this.detailed)) {
+    if (window.location.pathname.split("/")[1] == ProjectUrls.RecipeUrl) {
       this.main = false;
       this.detailed = true;
       this.added = false;
       this.profile = false;
     }
 
-    if ((window.location.pathname.split("/")[1] == ProjectUrls.AddUrl) && (!this.added)) {
+    if (window.location.pathname.split("/")[1] == ProjectUrls.AddUrl) {
       this.main = false;
       this.added = true;
       this.detailed = false;
       this.profile = false;
     }
 
-    if ((window.location.pathname == `/${ProjectUrls.ProfileUrl}`) && (!this.profile)) {
+    if (window.location.pathname == `/${ProjectUrls.ProfileUrl}`) {
       this.main = false;
       this.added = false;
       this.detailed = false;
@@ -127,4 +125,5 @@ export class RecipesComponent implements OnInit {
   public scrollToTop(): void {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
+  
 }

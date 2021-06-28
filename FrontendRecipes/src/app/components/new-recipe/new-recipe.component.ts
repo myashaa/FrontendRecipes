@@ -16,6 +16,7 @@ import { ElementRef } from '@angular/core';
   styleUrls: ['./new-recipe.component.css']
 })
 export class NewRecipeComponent implements OnInit {
+
   @ViewChild('name', { static: true }) Name!: ElementRef;
   @ViewChild('description', { static: true }) Description!: ElementRef;
   @ViewChild('tags', { static: true }) Tags!: ElementRef;
@@ -27,11 +28,32 @@ export class NewRecipeComponent implements OnInit {
   @ViewChild('step', { static: true }) Step!: ElementRef;
   // @ViewChild('stepDescription', { static: true }) StepDescription!: ElementRef;
 
-  public recipe!: RecipeDto;
-  public error!: boolean;
-  public maxLength: number = 0;
+  public recipe: RecipeDto = {
+    id: 0,
+    imageUrl: "assets/images/default.png",
+    author: "",
+    tags: "",
+    favorites: 0,
+    likes: 0,
+    name: "",
+    description: "",
+    cookingTimeInMinutes: 0,
+    totalPersons: 0,
+    ingredients: [],
+    steps: []
+  };
+  private error!: boolean;
+  private maxLength: number = 0;
 
-  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) {
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    if ((window.location.pathname.split("/")[1] == ProjectUrls.AddUrl) && (window.location.pathname.split("/")[2] != null)) {
+      let id = this.route.snapshot.params['id'];
+      this.recipeService.getRecipe(id).subscribe((recipe: RecipeDto) => {
+        this.recipe = recipe;
+      });
+    }
   }
 
   public addTitle(): void {
@@ -83,25 +105,8 @@ export class NewRecipeComponent implements OnInit {
     if (!this.error)
     {
       this.recipeService.addRecipe(this.recipe);
-      this.router.navigate([ProjectUrls.RecipesUrl]);
+      // this.router.navigate([ProjectUrls.RecipesUrl]);
     }
-  }
-
-  private getEmptyRecipe(): RecipeDto {
-    return {
-      id: 0,
-      imageUrl: "assets/images/default.png",
-      author: "",
-      tags: "",
-      favorites: 0,
-      likes: 0,
-      name: "",
-      description: "",
-      cookingTimeInMinutes: 0,
-      totalPersons: 0,
-      ingredients: [],
-      steps: []
-    };
   }
 
   visible = true;
@@ -145,16 +150,4 @@ export class NewRecipeComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    if ((window.location.pathname.split("/")[1] == ProjectUrls.AddUrl) && (window.location.pathname.split("/")[2] == null)) {
-      this.recipe = this.getEmptyRecipe();
-    }
-
-    if ((window.location.pathname.split("/")[1] == ProjectUrls.AddUrl) && (window.location.pathname.split("/")[2] != null)) {
-      let id = this.route.snapshot.params['id'];
-      this.recipeService.getRecipe(id).subscribe((recipe: RecipeDto) => {
-        this.recipe = recipe;
-      });
-    }
-  }
 }

@@ -30,5 +30,6 @@
   <div class="recipes">
     <span class="recipes_header">Мои рецепты</span>
     <app-card-recipe class="recipe" *ngFor="let recipe of recipes" [content]="recipe" (click)="showRecipe(recipe)"></app-card-recipe>
+    <div *ngIf="loading" class="loading"></div>
   </div>
 </div>

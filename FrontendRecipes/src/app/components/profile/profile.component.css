@@ -222,3 +222,20 @@
 {
   margin-bottom: 70px;
 }
+
+.loading {
+  width: 40px;
+  height: 40px;
+  border: 7px solid rgba(255, 215, 120, 0.6);
+  border-top-color: rgba(255, 215, 120);
+  border-radius: 100%;
+  -webkit-animation: loading linear .7s infinite;
+  animation: loading linear .7s infinite;
+  margin: 0 auto 30px;
+}
+@-webkit-keyframes loading {
+  100% {-webkit-transform: rotate(360deg);}
+}
+@keyframes loading {
+  100% {transform: rotate(360deg);}
+}

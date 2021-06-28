@@ -12,24 +12,16 @@ import { RecipeService } from 'src/app/js/services/recipe.service';
 })
 export class FavoritesComponent implements OnInit {
 
-  empty: boolean = true;
-  public recipes!: RecipeDto[];
-  scroll: boolean = false;
-
   @HostListener("document:scroll") onScroll() {
     this.scroll = true;
     if (document.documentElement.scrollTop == 0) { this.scroll = false; }
   }
 
+  public empty: boolean = true;
+  public recipes!: RecipeDto[];
+  public scroll: boolean = false;
+
   constructor(private recipeService: RecipeService, private router: Router) { }
-
-  public showRecipe(recipe: RecipeDto): void {
-    this.router.navigate([ProjectUrls.RecipeUrl, recipe.id]);
-  }
-
-  public scrollToTop(): void {
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-  }
 
   ngOnInit(): void {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -41,4 +33,13 @@ export class FavoritesComponent implements OnInit {
       }
     });
   }
+
+  public showRecipe(recipe: RecipeDto): void {
+    this.router.navigate([ProjectUrls.RecipeUrl, recipe.id]);
+  }
+
+  public scrollToTop(): void {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  }
+
 }

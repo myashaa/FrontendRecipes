@@ -14,21 +14,31 @@ import { ElementRef } from '@angular/core';
   styleUrls: ['./popup-registration.component.css']
 })
 export class PopupRegistrationComponent implements OnInit {
+  
   @ViewChild('name', { static: true }) Name!: ElementRef;
   @ViewChild('login', { static: true }) Login!: ElementRef;
   @ViewChild('password', { static: true }) Password!: ElementRef;
   @ViewChild('passwordCopy', { static: true }) PasswordCopy!: ElementRef;
   @ViewChild('button', { static: true }) Button!: ElementRef;
 
-  public author!: AuthorDto;
-  public error!: boolean;
+  public author: AuthorDto = {
+    id: 0,
+    name: "",
+    login: "",
+    password: "",
+    description: "",
+    amountOfRecipes: 0,
+    amountOfLikes: 0,
+    amountOfFavorites: 0
+  };
   public copyText: string = "";
+  private error!: boolean;
 
-  constructor(public dialog: MatDialog, private router: Router, private authorService: AuthorService) {
-    this.author = this.getNewAuthor();
-  }
+  constructor(public dialog: MatDialog, private router: Router, private authorService: AuthorService) { }
 
-  public openPopupAuthorization() {
+  ngOnInit(): void { }
+
+  public openPopupAuthorization(): void {
     this.dialog.open(PopupAuthorizationComponent);
   }
 
@@ -48,22 +58,6 @@ export class PopupRegistrationComponent implements OnInit {
       this.authorService.createAuthor(this.author);
       this.router.navigate([ProjectUrls.ProfileUrl]);
     }
-  }
-
-  private getNewAuthor(): AuthorDto {
-    return {
-      id: 0,
-      name: "",
-      login: "",
-      password: "",
-      description: "",
-      amountOfRecipes: 0,
-      amountOfLikes: 0,
-      amountOfFavorites: 0
-    };
-  }
-
-  ngOnInit(): void {
   }
 
 }

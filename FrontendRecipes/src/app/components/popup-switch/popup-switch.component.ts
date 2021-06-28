@@ -10,17 +10,16 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PopupSwitchComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) { }
+  
+  ngOnInit(): void { }
 
-  public openPopupAuthorization() {
+  public openPopupAuthorization(): void {
     this.dialog.open(PopupAuthorizationComponent);
   }
 
-  public openPopupRegistration() {
+  public openPopupRegistration(): void {
     this.dialog.open(PopupRegistrationComponent);
-  }
-
-  ngOnInit(): void {
   }
 
 }

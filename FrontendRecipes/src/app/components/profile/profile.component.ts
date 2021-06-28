@@ -14,26 +14,38 @@ import { RecipeService } from 'src/app/js/services/recipe.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
   @ViewChild('name', { static: true }) Name!: ElementRef;
   @ViewChild('login', { static: true }) Login!: ElementRef;
   @ViewChild('password', { static: true }) Password!: ElementRef;
   @ViewChild('description', { static: true }) Description!: ElementRef;
 
   public recipes!: RecipeDto[];
-  public author!: AuthorDto;
-  public protection: boolean = true;
-  public error!: boolean;
+  public author: AuthorDto = {
+    id: 0,
+    name: "",
+    login: "",
+    password: "",
+    description: "",
+    amountOfRecipes: 0,
+    amountOfLikes: 0,
+    amountOfFavorites: 0
+  };
+  public loading: boolean = true;
+  private protection: boolean = true;
+  private error!: boolean;
 
-  constructor(private recipeService: RecipeService, private authorService: AuthorService, private router: Router) {
-  }
+  constructor(private recipeService: RecipeService, private authorService: AuthorService, private router: Router) { }
 
   ngOnInit(): void {
-    this.recipeService.getAuthorRecipes().then((recipes: RecipeDto[]) => {
-      this.recipes = recipes;
-    });
-
     this.authorService.getAuthor().then((author: AuthorDto) => {
       this.author = author;
+      this.recipeService.searchFourRecipes('author', this.author.login).subscribe((recipes: RecipeDto[]) => {
+        this.recipes = recipes;
+        if ((this.recipes != undefined) && (this.recipes.length > 0)) {
+          this.loading = false;
+        }
+      });
     });
   }
 
@@ -68,4 +80,5 @@ export class ProfileComponent implements OnInit {
       }
     }
   }
+  
 }

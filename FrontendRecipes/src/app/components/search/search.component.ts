@@ -10,13 +10,11 @@ import { ProjectUrls } from 'src/app/js/constants/projectUrls';
 export class SearchComponent implements OnInit {
 
   public searchText: string = "";
-
-  sections: string[] = ["Мясо", "Деликатесы", "Пироги", "Рыба"];
+  public sections: string[] = ["Мясо", "Деликатесы", "Пироги", "Рыба"];
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   public searchRecipes(category: string, searchText: string): void {
     this.router.navigate([ProjectUrls.RecipesUrl, category, searchText]);

@@ -12,14 +12,19 @@ export class CardRecipeComponent implements OnInit {
 
   @Input() content!: RecipeDto;
 
-  isFavoriteRecipe!: boolean;
-  isLikedRecipe!: boolean;
-  isDetailedRecipe!: boolean;
+  public isFavoriteRecipe!: boolean;
+  public isLikedRecipe!: boolean;
+  public isDetailedRecipe!: boolean;
 
   constructor(private router: Router) { }
 
+  ngOnInit(): void {
+    (window.location.pathname.split("/")[1] == ProjectUrls.RecipeUrl)
+      ? this.isDetailedRecipe = true
+      : this.isDetailedRecipe = false;
+  }
 
-  public switchFavoriteRecipe(event: any) {
+  public switchFavoriteRecipe(event: any): void {
     event.stopPropagation();
     this.isFavoriteRecipe = !this.isFavoriteRecipe;
     (this.isFavoriteRecipe)
@@ -27,23 +32,17 @@ export class CardRecipeComponent implements OnInit {
       : this.content.favorites--;
   }
 
-  public switchLikedRecipe(event: any) {
+  public switchLikedRecipe(event: any): void {
     event.stopPropagation();
     this.isLikedRecipe = !this.isLikedRecipe;
     (this.isLikedRecipe)
       ? this.content.likes++
       : this.content.likes--;
   }
-
-  ngOnInit(): void {
-    ((window.location.pathname.split("/")[1] == ProjectUrls.RecipeUrl) && (!this.isDetailedRecipe))
-      ? this.isDetailedRecipe = true
-      : this.isDetailedRecipe = false;
-  }
   
   public searchRecipes(event: any, category: string, searchText: string): void {
     this.router.navigate([ProjectUrls.RecipesUrl, category, searchText]);
     event.stopPropagation();
   }
-
+  
 }

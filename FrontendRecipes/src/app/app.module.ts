@@ -25,6 +25,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PopupWarningComponent } from './components/popup-warning/popup-warning.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     StepRecipeComponent,
     ProfileComponent,
     NewRecipeComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    PopupWarningComponent
   ],
   imports: [
     BrowserModule,

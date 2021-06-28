@@ -12,7 +12,7 @@
         <button class="authorization-content_button authorization-contentt_button__add" (click)="goToAddRecipe()">
           Добавить рецепт
         </button>
-        <button (click)="openPopupSwitch()" class="authorization-content_button authorization-contentt_button__enter">
+        <button (click)="openPopupAuthorization()" class="authorization-content_button authorization-contentt_button__enter">
           Войти
         </button>
       </div>
@@ -54,6 +54,7 @@
     </div>
   </div>
   <div class="example" (click)="showRecipe()">
+    <img class="example_image" src="{{recipe.imageUrl}}" alt="card photo"/>
     <div class="example_buttons">
       <button class="button button_like" (click)="switchLikedRecipe($event)">
         <img class="button_image" *ngIf="!isLikedRecipe" src="/assets/images/favorite_border2.png" alt="heart photo"/>

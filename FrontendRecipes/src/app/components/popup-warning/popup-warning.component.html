@@ -1,0 +1,13 @@
+<div class="popup-warning">
+  <button mat-dialog-close class="exit"><span class="exit-text">+</span></button>
+  <span class="popup-warning_header">Подтверждение действия</span>
+  <span class="popup-warning_text">Ваши данные не сохраняться. Вы уверены, что готовы покинуть сраницу?</span>
+  <div class="buttons">
+    <button mat-dialog-close (click)="goToPage()" class="popup-warning_button popup-warning_button__confirm">
+      Да
+    </button>
+    <button mat-dialog-close class="popup-warning_button popup-warning_button__cancel">
+      Отмена
+    </button>
+  </div>
+</div>

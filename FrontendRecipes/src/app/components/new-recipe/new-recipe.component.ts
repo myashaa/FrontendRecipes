@@ -104,8 +104,9 @@ export class NewRecipeComponent implements OnInit {
 
     if (!this.error)
     {
-      this.recipeService.addRecipe(this.recipe);
-      // this.router.navigate([ProjectUrls.RecipesUrl]);
+      this.recipeService.addRecipe(this.recipe).subscribe(() => {
+        this.router.navigate([ProjectUrls.RecipesUrl]);
+      });
     }
   }
 

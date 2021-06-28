@@ -27,11 +27,11 @@ export class RecipeService {
     return this.http.get<RecipeDto>(`${BackendUrls.RecipeUrl}${"/favorite"}`);
   }
 
-  public addRecipe(recipe: RecipeDto): void {
-    this.http.post(BackendUrls.RecipeUrl, recipe);
+  public addRecipe(recipe: RecipeDto): Observable<void> {
+    return this.http.post<void>(`${BackendUrls.RecipeUrl}`, recipe);
   }
 
-  public deleteRecipe(id: number): void {
+  public deleteRecipe(id: number): void { // todo переделать на использование observable
     this.http.delete<RecipeDto>(`${BackendUrls.RecipeUrl}${"/"}${id}`);
   }
 

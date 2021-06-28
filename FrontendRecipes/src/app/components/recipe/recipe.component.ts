@@ -38,7 +38,7 @@ export class RecipeComponent implements OnInit {
 
   public deleteRecipe(): void {
     let id = this.route.snapshot.params['id'];
-    this.recipeService.deleteRecipe(id);
+    this.recipeService.deleteRecipe(id); //TODO переделать на использование subscribe
     // this.router.navigate([ProjectUrls.RecipesUrl]);
   }
 
